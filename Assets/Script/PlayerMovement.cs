@@ -14,7 +14,7 @@ public class TestPlayerMovement : MonoBehaviour
     [SerializeField] private float _fallingGravityScale;
     [SerializeField] private float _dashForce;
     
-     private float _currentGravityScale;
+    private float _currentGravityScale;
     private bool _canDash = true;
     private float _gravity;
     private bool _grounded;  
@@ -41,7 +41,6 @@ public class TestPlayerMovement : MonoBehaviour
         {
             _rb.AddForce(Vector3.up * _jumpForce, ForceMode.Impulse);
         }
-        
     }
 
     void OnDash(InputValue value)
