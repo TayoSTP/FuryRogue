@@ -16,8 +16,8 @@ public class TestPlayerMovement : MonoBehaviour
     
      private float _currentGravityScale;
     private bool _canDash = true;
-    
-    bool _grounded() {return Physics.Raycast(transform.position, Vector3.down, 1.1f);}
+    private float _gravity;
+    private bool _grounded;  
     
     private Rigidbody _rb;
     Vector2 _movement;
@@ -37,10 +37,9 @@ public class TestPlayerMovement : MonoBehaviour
 
     void OnJump(InputValue value)
     {
-        if (_grounded())
+        if (_grounded)
         {
-            //_rb.AddForce(Vector3.up * _jumpForce, ForceMode.Impulse);
-            _rb.linearVelocity += new Vector3(0,_jumpForce) ;
+            _rb.AddForce(Vector3.up * _jumpForce, ForceMode.Impulse);
         }
         
     }
@@ -52,13 +51,15 @@ public class TestPlayerMovement : MonoBehaviour
     private void Update()
     {
         
-        if (_rb.linearVelocity.y >= 0)
-        {
-            _currentGravityScale = _gravityScale;
+        //Grounded Check
+        
+        if (Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, 1.5f))
+        { 
+            _grounded = true;   
         }
         else
         {
-            _currentGravityScale = _fallingGravityScale;
+            _grounded = false;
         }
         
     }
@@ -73,22 +74,19 @@ public class TestPlayerMovement : MonoBehaviour
     
     private void FixedUpdate()
     {
-        
-        _rb.AddForce(Physics.gravity *(_currentGravityScale - 1 ) * _rb.mass);
-        
-        
-        
         if (_movement != Vector2.zero)
         {
             _rb.AddForce(_movement * _acceleration, ForceMode.Force);
             if (_rb.linearVelocity.magnitude > _maxSpeed)
             {
-                _rb.linearVelocity = _rb.linearVelocity.normalized * _maxSpeed;
-            }
+                _rb.linearVelocity = new Vector3((_rb.linearVelocity.normalized.x * _maxSpeed), _rb.linearVelocity.y);
+            }  
         }
         else
         {
-            _rb.AddForce(_rb.linearVelocity * -_deceleration , ForceMode.Force);
+            _rb.AddForce(_movement * -_deceleration, ForceMode.Force);
         }
+        _rb.AddForce((Vector3.down * _gravityScale), ForceMode.Acceleration);
+        
     }
 }
