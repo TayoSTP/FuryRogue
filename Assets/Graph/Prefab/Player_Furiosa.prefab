@@ -241,6 +241,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5279663975044146382}
+  - component: {fileID: 1060605759462701813}
+  - component: {fileID: 3005148016464241614}
+  - component: {fileID: 2976550916651573245}
   m_Layer: 0
   m_Name: Player_Furiosa
   m_TagString: Untagged
@@ -265,6 +268,82 @@ Transform:
   - {fileID: 3687936293919702422}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1060605759462701813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5316962869786817145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: ebf6856479ec0bb49819af7b5ba593ef, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
+--- !u!114 &3005148016464241614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5316962869786817145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7b8eb2e72b8085479ce07dbd8d86a22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _acceleration: 50
+  _deceleration: 50
+  _maxSpeed: 50
+  _jumpForce: 50
+  _gravityScale: 50
+  _fallingGravityScale: 50
+  _dashForce: 50
+--- !u!54 &2976550916651573245
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5316962869786817145}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &3530366399078357720
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -324,12 +403,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 010e45a19d98c46458304ed954c5c31a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2872674153017247553}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 010e45a19d98c46458304ed954c5c31a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 6575299470487877269}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 010e45a19d98c46458304ed954c5c31a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2838763201872227253}
   m_SourcePrefab: {fileID: 100100000, guid: 010e45a19d98c46458304ed954c5c31a, type: 3}
 --- !u!4 &3996057313859812659 stripped
 Transform:
@@ -364,49 +437,3 @@ CapsuleCollider:
   m_Height: 1.706607
   m_Direction: 1
   m_Center: {x: 0.014103472, y: 0.85099, z: -0.07302809}
---- !u!54 &6575299470487877269
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4341197743818499977}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!114 &2838763201872227253
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4341197743818499977}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7b8eb2e72b8085479ce07dbd8d86a22, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _acceleration: 5
-  _deceleration: 5
-  _maxSpeed: 10
-  _jumpForce: 5
-  _gravityScale: 5
-  _fallingGravityScale: 5
-  _dashForce: 10
