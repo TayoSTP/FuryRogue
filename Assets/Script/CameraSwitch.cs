@@ -24,7 +24,7 @@ public class CameraSwitch : MonoBehaviour
     {
         if (_newPosition != null)
         {
-            gameObject.transform.position = new Vector3(Mathf.Lerp(gameObject.transform.position, _newPosition, Time.deltaTime);
+           // gameObject.transform.position = new Vector3(Mathf.Lerp(gameObject.transform.position, _newPosition, Time.deltaTime);
         }
     }
 }
