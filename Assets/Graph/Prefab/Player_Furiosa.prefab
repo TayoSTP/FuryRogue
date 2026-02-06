@@ -419,13 +419,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7b8eb2e72b8085479ce07dbd8d86a22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _acceleration: 30
-  _deceleration: 30
-  _maxSpeed: 40
-  _jumpForce: 15
-  _gravityScale: 25
+  _acceleration: 50
+  _deceleration: 10
+  _maxSpeed: 8
+  _jumpForce: 10
+  _gravityScale: 10
   _fallingGravityScale: 25
-  _dashForce: 20
+  _dashForce: 75
 --- !u!54 &2976550916651573245
 Rigidbody:
   m_ObjectHideFlags: 0
