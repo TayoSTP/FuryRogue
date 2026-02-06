@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
+using Unity.Mathematics;
 using UnityEngine.InputSystem;
 
 public class TestPlayerMovement : MonoBehaviour
@@ -11,15 +12,16 @@ public class TestPlayerMovement : MonoBehaviour
     [SerializeField] private float _maxSpeed;
     [SerializeField] private float _jumpForce;
     [SerializeField] private float _gravityScale;
-    [SerializeField] private float _fallingGravityScale;
+    //[SerializeField] private float _fallingGravityScale;
     [SerializeField] private float _dashForce;
     
     private float _currentGravityScale;
     private bool _canDash = true;
     private float _gravity;
     private bool _grounded;  
-    
     private Rigidbody _rb;
+    private float pRot;
+    public bool _followCamera = true;
     Vector2 _movement;
     
     
@@ -40,6 +42,7 @@ public class TestPlayerMovement : MonoBehaviour
         if (_grounded)
         {
             _rb.AddForce(Vector3.up * _jumpForce, ForceMode.Impulse);
+            //_rb.linearVelocity += new Vector3(0, _jumpForce, 0);
         }
     }
 
@@ -52,7 +55,7 @@ public class TestPlayerMovement : MonoBehaviour
         
         //Grounded Check
         
-        if (Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, 1.5f))
+        if (Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, 1.8f))
         { 
             _grounded = true;   
         }
@@ -66,26 +69,41 @@ public class TestPlayerMovement : MonoBehaviour
     IEnumerator dash()
     {
         _canDash = false;
-        _rb.AddForce(_movement *  _dashForce , ForceMode.Impulse);
+        _rb.AddForce(new Vector3(_movement.x,0,0) *  _dashForce , ForceMode.Impulse);
         yield return new WaitForSeconds(0.2f);
         _canDash = true;
     }
     
     private void FixedUpdate()
     {
-        if (_movement != Vector2.zero)
-        {
-            _rb.AddForce(_movement * _acceleration, ForceMode.Force);
+        //Vector3 movement = new Vector3(_movement.x, _rb.linearVelocity.y, 0);
+        //if (movement  != Vector3.zero)
+        //{
+            _rb.AddForce(new Vector3(_movement.x,0,0) * _acceleration, ForceMode.Force);
             if (_rb.linearVelocity.magnitude > _maxSpeed)
             {
                 _rb.linearVelocity = new Vector3((_rb.linearVelocity.normalized.x * _maxSpeed), _rb.linearVelocity.y);
-            }  
-        }
-        else
-        {
-            _rb.AddForce(_movement * -_deceleration, ForceMode.Force);
-        }
-        _rb.AddForce((Vector3.down * _gravityScale), ForceMode.Acceleration);
+            } 
+       // }
+        //else
+        //{
+        //   _rb.AddForce(_movement * -_deceleration, ForceMode.Force);
+       // }
         
+       if (_movement.x > 0.8f )
+       {
+           pRot = 0;
+       }
+       else if (_movement.x == 0)
+       {
+           
+       }
+       else if(_movement.x < 0)
+       {
+           pRot = 180;
+       }
+       gameObject.transform.localRotation = Quaternion.Euler(0, pRot, 0);
+        _rb.AddForce((Vector3.down * _gravityScale), ForceMode.Force);
+        print(_movement.x);
     }
 }
