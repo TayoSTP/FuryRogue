@@ -80,10 +80,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _acceleration: 30
   _deceleration: 30
-  _maxSpeed: 10
-  _jumpForce: 15
+  _maxSpeed: 5.5
+  _jumpForce: 12.5
   _gravityScale: 25
   _dashForce: 20
+  _followCamera: 1
 --- !u!54 &2976550916651573245
 Rigidbody:
   m_ObjectHideFlags: 0
