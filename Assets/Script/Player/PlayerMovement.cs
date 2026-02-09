@@ -104,6 +104,6 @@ public class TestPlayerMovement : MonoBehaviour
        }
        gameObject.transform.localRotation = Quaternion.Euler(0, pRot, 0);
         _rb.AddForce((Vector3.down * _gravityScale), ForceMode.Force);
-        print(_movement.x);
+        
     }
 }
