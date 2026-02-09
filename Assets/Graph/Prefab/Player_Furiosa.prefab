@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3005148016464241614}
   - component: {fileID: 2976550916651573245}
   - component: {fileID: 1480659284956360048}
+  - component: {fileID: 2132097816151654470}
   m_Layer: 0
   m_Name: Player_Furiosa
   m_TagString: Player
@@ -135,6 +136,22 @@ CapsuleCollider:
   m_Height: 1.82
   m_Direction: 1
   m_Center: {x: 0, y: 0.86, z: 0}
+--- !u!114 &2132097816151654470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5316962869786817145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1cb8f6f5c043bc4a9c0766a799306a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _currentHealth: 0
+  _maxHealth: 100
+  respawnPoint: {fileID: 0}
+  _playerPrefab: {fileID: 5316962869786817145}
 --- !u!1001 &3530366399078357720
 PrefabInstance:
   m_ObjectHideFlags: 0
