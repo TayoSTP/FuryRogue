@@ -5,6 +5,7 @@ public class PlayerStats : MonoBehaviour
     public float _currentHealth;
     public float _maxHealth = 100f;
     public GameObject respawnPoint;
+    public int _ammo = 3;
 
     [SerializeField] private GameObject _playerPrefab;
     

@@ -10,6 +10,7 @@ public class AI_CloseCombat : MonoBehaviour
     private bool _rampage = false;
     private bool _canMove;
     private RaycastHit _hit;
+    private float _distance =20;
     
 
     [SerializeField] private float _detectionRange;
@@ -19,7 +20,6 @@ public class AI_CloseCombat : MonoBehaviour
     [SerializeField] private float _attackRate;
     [SerializeField] private float _hitDamage;
     [SerializeField] private float _maxHealth;
-    [SerializeField] private float _ma;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -84,14 +84,24 @@ public class AI_CloseCombat : MonoBehaviour
 
     private void FixedUpdate()
     {
+        Physics.Raycast(transform.position + new Vector3(0,1,0), transform.forward, out _hit,_distance);
+        if (_hit.collider != null)
+        {
+            _distance = Vector3.Distance(_hit.transform.position, transform.position);
+        }
+        else
+        {
+            _distance = _detectionRange;
+        }
         
         
+        print(_distance);
         
     }
 
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.magenta;
-        Gizmos.DrawRay(gameObject.transform.position,  gameObject.transform.forward * _detectionRange);
+        Gizmos.DrawRay(gameObject.transform.position + new Vector3(0,1,0),  gameObject.transform.forward * _distance);
     }
 }
