@@ -34,8 +34,8 @@ public class PlayerStats : MonoBehaviour
 
     void death()
     {
-        Destroy(gameObject);
-        Instantiate(_playerPrefab, respawnPoint.transform.position, respawnPoint.transform.rotation);
+    	_currentHealth = _maxHealth;
+        gameObject.transform.position = respawnPoint.transform.position;
     }
 
     public void gainHealth(float heal)
