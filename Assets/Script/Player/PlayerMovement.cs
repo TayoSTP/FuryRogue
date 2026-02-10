@@ -42,6 +42,11 @@ public class TestPlayerMovement : MonoBehaviour
         if (_grounded)
         {
             _rb.AddForce(Vector3.up * _jumpForce, ForceMode.Impulse);
+            if (_movement != Vector2.zero)
+            {
+                _rb.AddForce(Vector3.forward * _movement * 6.25f, ForceMode.Impulse);
+            }
+            
             //_rb.linearVelocity += new Vector3(0, _jumpForce, 0);
         }
     }
@@ -92,7 +97,7 @@ public class TestPlayerMovement : MonoBehaviour
         
        if (_movement.x > 0.8f )
        {
-           pRot = 0;
+           pRot = 90;
        }
        else if (_movement.x == 0)
        {
@@ -100,7 +105,7 @@ public class TestPlayerMovement : MonoBehaviour
        }
        else if(_movement.x < 0)
        {
-           pRot = 180;
+           pRot = -90;
        }
        gameObject.transform.localRotation = Quaternion.Euler(0, pRot, 0);
         _rb.AddForce((Vector3.down * _gravityScale), ForceMode.Force);
