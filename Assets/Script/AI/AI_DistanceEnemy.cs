@@ -34,7 +34,6 @@ public class AI_DistanceEnemy : MonoBehaviour
     {
         
             float distance = Vector3.Distance(_target.transform.position, transform.position);
-            print(distance);
             if (distance < _detectionRange)
             {
                 if (_ammo > 0)
@@ -53,6 +52,7 @@ public class AI_DistanceEnemy : MonoBehaviour
             {
                 
             }
+            _projectileSpawn.transform.LookAt(_target.transform.position);
         
     }
 
@@ -62,7 +62,7 @@ public class AI_DistanceEnemy : MonoBehaviour
         {
             Vector3 relativePosition = _target.transform.position - transform.position; 
             Quaternion rotation = Quaternion.LookRotation(relativePosition, Vector3.forward);
-            Instantiate(_projectile, _projectileSpawn.transform.position, rotation );
+            Instantiate(_projectile, _projectileSpawn.transform.position, _projectileSpawn.transform.rotation);
             _lastShot = Time.time;
             _ammo--;
         }

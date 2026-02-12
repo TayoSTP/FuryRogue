@@ -19,8 +19,6 @@ public class CameraSwitch : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        print(other.name);
-        print(other.tag);
         if (other.gameObject.CompareTag("Player"))
         {
             

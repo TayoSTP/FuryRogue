@@ -11,7 +11,7 @@ public class AI_CloseCombat : MonoBehaviour
     private bool _canMove;
     private RaycastHit _hit;
     private float _distance =20;
-    
+    private AI_Stats _aiStats;
 
     [SerializeField] private float _detectionRange;
     [SerializeField] private float _dashSpeed;
@@ -24,12 +24,14 @@ public class AI_CloseCombat : MonoBehaviour
     void Start()
     {
         _target = GameObject.FindGameObjectWithTag("Player");
-        _currentHealth = _maxHealth;
+        _currentHealth = _maxHealth;   
+        _aiStats = GetComponent<AI_Stats>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        //gameObject.transform.LookAt(_target.transform.position);
         float distance = Vector3.Distance(_target.transform.position, transform.position);
         if (distance < _detectionRange  && _canMove)
         {
@@ -40,9 +42,10 @@ public class AI_CloseCombat : MonoBehaviour
             attack();
         }
         
-        if (_currentHealth <= (_maxHealth*30)/100)
+        if (_aiStats._currentHealth <= (_aiStats._maxHealth*30)/100)
         {
             _rampage = true;
+            _canMove = true;
         }
 
         if (!_canMove && distance > _detectionRange/2 )
@@ -94,8 +97,6 @@ public class AI_CloseCombat : MonoBehaviour
             _distance = _detectionRange;
         }
         
-        
-        print(_distance);
         
     }
 
