@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class AI_Stats : MonoBehaviour
 {
-    [SerializeField] private float _maxHealth = 100f;
+    [SerializeField] public float _maxHealth = 100f;
 
-    private float _currentHealth;
+    public float _currentHealth;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

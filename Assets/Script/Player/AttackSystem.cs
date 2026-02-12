@@ -3,22 +3,52 @@ using System.Collections;
 using UnityEngine.InputSystem;
 public class AttackSystem : MonoBehaviour
 {
-    private int _ammo;
+    
     private float _lastShot;
-
+    private int _hitsnumber;
+    private Vector2 _mousePos;
+    private Vector2[] _segments;
+    private LineRenderer _lineRenderer;
+    private const float TIME_CURVE_ADDITION = 0.5f;
+    
+    
+    private int _ammo;
     [SerializeField] private GameObject _arrowPrefab;
     [SerializeField] private GameObject _muzzle;
     [SerializeField] private float _fireRate;
-    [SerializeField] private float _attackDamage;
+    [SerializeField] public float _attackDamage;
+    [SerializeField] private int _segmentCount = 50;
+    [SerializeField] private float _curveLength = 3.5f;
+    [SerializeField] private float  _projectileGravityFromRB;
+    [SerializeField] private GameObject _exploPrefab;
+    [SerializeField] public int bigAttackChancePourcentage;
+    
     void Start()
     {
         _ammo = gameObject.GetComponent<PlayerStats>()._ammo;
+        _segments = new Vector2[_segmentCount];
+        
+        _lineRenderer = GetComponent<LineRenderer>();
+        _lineRenderer.positionCount = _segmentCount;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+       /* Vector2 startPos = _muzzle.transform.position;
+        _segments[0] = startPos;
+        _lineRenderer.SetPosition(0, startPos);
+
+        Vector2 startVelocity = transform.forward * 650;
+        for (int i = 1; i < _segmentCount; i++)
+        {
+            float timeOffset = (i *Time.fixedDeltaTime * _curveLength);
+            
+            Vector2 gravityOffset = TIME_CURVE_ADDITION * Physics.gravity * _projectileGravityFromRB * Mathf.Pow(timeOffset, 2);
+             _segments[i] = _segments[0] + startVelocity * timeOffset + gravityOffset;
+             _lineRenderer.SetPosition(i, _segments[i]);
+        }*/
+         print((100 * Random.Range(0, 100))/100 <= 30);
     }
 
     void OnAbility(InputValue value)
@@ -39,16 +69,26 @@ public class AttackSystem : MonoBehaviour
         {
             if (hit.collider.gameObject.CompareTag("Ennemy"))
             {
-                Rigidbody rb = hit.collider.gameObject.GetComponent<Rigidbody>();
-                rb.AddForce(gameObject.transform.forward * 100);
-                hit.collider.gameObject.GetComponent<AI_Stats>().looseHealth(_attackDamage);
+                if ((100 * Random.Range(0, 100))/100 <= bigAttackChancePourcentage)
+                {
+                    Rigidbody rb = hit.collider.gameObject.GetComponent<Rigidbody>();
+                    rb.AddForce(gameObject.transform.forward * 150);
+                    hit.collider.gameObject.GetComponent<AI_Stats>().looseHealth(_attackDamage+10);
+                    _hitsnumber = 0;
+                    Instantiate(_exploPrefab, hit.point, Quaternion.identity);
+                    print("boom");
+                }
+                else
+                {
+                    Rigidbody rb = hit.collider.gameObject.GetComponent<Rigidbody>();
+                    rb.AddForce(gameObject.transform.forward * 100);
+                    hit.collider.gameObject.GetComponent<AI_Stats>().looseHealth(_attackDamage);
+                    _hitsnumber++;
+                }
+                
             }
         }
-        /*
-        if (Physics.Raycast(transform.position, Vector3.forward, 2f ))
-        {
-            print("obj");
-        }*/
+        
             
     }
     private void OnDrawGizmos() 
