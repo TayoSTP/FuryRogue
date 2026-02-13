@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine.InputSystem;
 public class AttackSystem : MonoBehaviour
 {
@@ -102,7 +103,7 @@ public class AttackSystem : MonoBehaviour
             Vector3 castOrigin = new Vector3(transform.position.x, transform.position.y +1, transform.position.z);
             if (Physics.Raycast(castOrigin, fwd, out RaycastHit hit, 1.5f))
             {
-            
+                
                 if (hit.collider.gameObject.CompareTag("Ennemy"))
                 {
                     if ((100 * Random.Range(0, 100))/100 <= bigAttackChancePourcentage && plugIn1)
