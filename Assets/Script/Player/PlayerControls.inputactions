@@ -35,12 +35,12 @@
                 },
                 {
                     "name": "Ability",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "c2111ea4-0c0e-4a5e-ab7d-cfbde5c10ccf",
-                    "expectedControlType": "",
+                    "expectedControlType": "Analog",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 },
                 {
                     "name": "LightAttack",
@@ -184,7 +184,7 @@
                 {
                     "name": "",
                     "id": "97dda9ed-3982-4284-a04b-cad54336d5db",
-                    "path": "<Keyboard>/r",
+                    "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
