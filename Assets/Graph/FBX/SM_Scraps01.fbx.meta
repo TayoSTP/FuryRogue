@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 06e648efee7bafc419223bbbd5e76311
+guid: 9d1d6d6aff875234eac8f51491022b33
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,8 +7,23 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: M_Blocking
-    second: {fileID: 2100000, guid: aa4bd2bdf2fd6394a8a3ae085cca46e1, type: 2}
+      name: M_RampVehicle
+    second: {fileID: 2100000, guid: af7a3e76ef24e344f83e0758c3117e4e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Sol
+    second: {fileID: 2100000, guid: 1c0b2b2bd16aa39498cd01ae68820b1d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Vehicle
+    second: {fileID: 2100000, guid: 3e3d7db5b3297284f8407be8010f18cb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mio3CheckerMapMat_2048
+    second: {fileID: 2100000, guid: 3e3d7db5b3297284f8407be8010f18cb, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
