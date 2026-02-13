@@ -31,11 +31,11 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _Diffuse:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 50e8d8e76b0081f47ba83d218e1281eb, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Normal:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: e0b8b65471696874b840e4fd2f5a4681, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Puddle:
@@ -77,12 +77,13 @@ Material:
     - _EnableBlendModePreserveSpecularLighting: 1
     - _EnableFogOnTransparent: 1
     - _ExcludeFromTUAndAA: 0
-    - _Flow: 0.01
+    - _Flow: 0.1
     - _FlowTiling: 213
     - _MaterialID: 1
     - _MaterialTypeMask: 2
     - _OpaqueCullMode: 2
     - _PerPixelSorting: 0
+    - _PuddleTiling: -4.8
     - _RayTracing: 0
     - _ReceivesSSR: 1
     - _ReceivesSSRTransparent: 0
@@ -118,7 +119,7 @@ Material:
     m_Colors:
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
-    - _MainTilling: {r: 5, g: 5, b: 0, a: 0}
+    - _MainTilling: {r: 1, g: 1, b: 0, a: 0}
     - _RippleSpeed: {r: 0, g: 1, b: 0, a: 0}
     - _RippleTiling: {r: 5, g: 20, b: 0, a: 0}
     - _SmoothTiling: {r: 0.1, g: 0.1, b: 0, a: 0}
