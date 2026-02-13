@@ -13,7 +13,7 @@ public class TestPlayerMovement : MonoBehaviour
     [SerializeField] private float _jumpForce;
     [SerializeField] private float _gravityScale;
     //[SerializeField] private float _fallingGravityScale;
-    [SerializeField] private float _dashForce;
+    [SerializeField] public float _dashForce;
     
     private float _currentGravityScale;
     private bool _canDash = true;
