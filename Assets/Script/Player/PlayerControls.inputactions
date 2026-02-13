@@ -35,12 +35,12 @@
                 },
                 {
                     "name": "Ability",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "c2111ea4-0c0e-4a5e-ab7d-cfbde5c10ccf",
-                    "expectedControlType": "",
+                    "expectedControlType": "Analog",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 },
                 {
                     "name": "LightAttack",
@@ -96,7 +96,7 @@
                 {
                     "name": "",
                     "id": "8282e5dc-c83a-4539-8d30-872226ae1a9b",
-                    "path": "<Keyboard>/c",
+                    "path": "<Keyboard>/shift",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -184,7 +184,7 @@
                 {
                     "name": "",
                     "id": "97dda9ed-3982-4284-a04b-cad54336d5db",
-                    "path": "<Keyboard>/r",
+                    "path": "<Mouse>/rightButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -195,7 +195,7 @@
                 {
                     "name": "",
                     "id": "cc0145d4-220c-4ce3-a599-43992c9c59c3",
-                    "path": "<Keyboard>/t",
+                    "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -217,7 +217,7 @@
                 {
                     "name": "",
                     "id": "6d912106-b36c-48ec-a91d-7ec36599ae38",
-                    "path": "<Keyboard>/j",
+                    "path": "<Keyboard>/q",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
