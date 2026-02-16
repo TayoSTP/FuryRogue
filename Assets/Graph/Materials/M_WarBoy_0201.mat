@@ -23,7 +23,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_Ramp_Car
+  m_Name: M_WarBoy_0201
   m_Shader: {fileID: -6465566751694194690, guid: 52332be4f17dc744eb465f47b8bbeb2e, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -47,23 +47,19 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _AO:
-        m_Texture: {fileID: 2800000, guid: 22ce8090b51c1404fa65b385996fcaa7, type: 3}
+        m_Texture: {fileID: 2800000, guid: f201c3c2b0cf44740b0706a0e86bd252, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Albedo:
-        m_Texture: {fileID: 2800000, guid: 20c4be9478fb9954982d3d3a2f2b3fec, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _Metalic_Roughness:
-        m_Texture: {fileID: 2800000, guid: 64b0e8cd2fed9d24ca15d8d417645a4f, type: 3}
+        m_Texture: {fileID: 2800000, guid: d587e5f5ced306548abe2af99e67504c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Normal:
-        m_Texture: {fileID: 2800000, guid: 5e7eda73cd14e004190bdc7d4d44a6da, type: 3}
+        m_Texture: {fileID: 2800000, guid: 6cc24bc16a55e4b4581814703046b1c0, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Roughness:
-        m_Texture: {fileID: 2800000, guid: 22ce8090b51c1404fa65b385996fcaa7, type: 3}
+        m_Texture: {fileID: 2800000, guid: f201c3c2b0cf44740b0706a0e86bd252, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_988848a0e3634a20a63c9b3483646944_Texture_1_Texture2D:
@@ -113,7 +109,6 @@ Material:
     - _RefractionModel: 0
     - _RenderQueueType: 1
     - _RequireSplitLighting: 0
-    - _RoughnessTwiking: 0
     - _Roughnessmodification: 0
     - _SaturationAdd: 1
     - _SrcBlend: 1
