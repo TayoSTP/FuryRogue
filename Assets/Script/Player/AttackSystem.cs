@@ -1,7 +1,12 @@
+using System;
 using UnityEngine;
 using System.Collections;
 using Unity.VisualScripting;
+using UnityEngine.AI;
 using UnityEngine.InputSystem;
+using UnityEngine.WSA;
+using Random = UnityEngine.Random;
+
 public class AttackSystem : MonoBehaviour
 {
     
@@ -17,7 +22,7 @@ public class AttackSystem : MonoBehaviour
     private float lastAttack;
     bool arrowInHand = false;
     
-    
+       
     
     private int _ammo;
     [SerializeField] private GameObject _arrowPrefab;
@@ -31,7 +36,13 @@ public class AttackSystem : MonoBehaviour
     [SerializeField] public int bigAttackChancePourcentage;
     [SerializeField] Animator _animator;
     public bool plugIn1;
+
+    private PlayerControls controls;
+    private GameObject arrow;
+
+
     
+
     void Start()
     {
         _ammo = gameObject.GetComponent<PlayerStats>()._ammo;
@@ -59,49 +70,42 @@ public class AttackSystem : MonoBehaviour
              _segments[i] = _segments[0] + startVelocity * timeOffset + gravityOffset;
              _lineRenderer.SetPosition(i, _segments[i]);
         }*/
-         print((100 * Random.Range(0, 100))/100 <= 30);
     }
 
     void OnAbility(InputValue value)
     {
-        if (Time.time > _lastShot + _fireRate && _ammo > 0)
+        if (arrowInHand)
         {
-            if (value.isPressed)
-            {
-                arrowInHand = true;
-                Instantiate(_arrowPrefab, _muzzle.transform.position, _muzzle.transform.rotation);
-                _animator.SetBool("ArrowInHand", arrowInHand);
-            }
-            else if (arrowInHand && !value.isPressed)
-            {
-                arrowInHand = false;
-                _animator.SetBool("ArrowInHand", arrowInHand);
-            }
-        
-            
-            _lastShot = Time.time;
-            _ammo--;
+            _animator.SetBool("ArrowInHand", true);
+            _animator.SetTrigger("EquipCrossbow");
         }
+
+        /*    if (Time.time > _lastShot + _fireRate && _ammo > 0)
+            {
+                arrow =  Instantiate(_arrowPrefab, _muzzle.transform.position, _muzzle.transform.rotation);
+
+
+                _lastShot = Time.time;
+                _ammo--;
+            }
+        }*/
+        if(!arrowInHand)
+        {
+            
+            _animator.SetTrigger("EquipCrossbow");
+            arrowInHand = true;
+        }
+        
     }
 
     void OnLightAttack(InputValue value)
     {
         if (canAttack)
         {
-            if (attackNumber == 1 && lastAttack <= 1)
-            {
-                attackNumber = 2;
-                _animator.SetInteger(("AttackNumber"), attackNumber);
-            }
-            else
-            {
-                attackNumber = 1;
-                _animator.SetInteger(("AttackNumber"), attackNumber);
-            }
-            _animator.SetTrigger("Punch");
+            
             Vector3 fwd = transform.TransformDirection(Vector3.forward);
             Vector3 castOrigin = new Vector3(transform.position.x, transform.position.y +1, transform.position.z);
-            if (Physics.Raycast(castOrigin, fwd, out RaycastHit hit, 1.5f))
+            if (Physics.Raycast(castOrigin, fwd, out RaycastHit hit, 1.2f))
             {
                 
                 if (hit.collider.gameObject.CompareTag("Ennemy"))
@@ -109,22 +113,44 @@ public class AttackSystem : MonoBehaviour
                     if ((100 * Random.Range(0, 100))/100 <= bigAttackChancePourcentage && plugIn1)
                     {
                         Rigidbody rb = hit.collider.gameObject.GetComponent<Rigidbody>();
-                        rb.AddForce(gameObject.transform.forward * 150);
+                        rb.AddForce(gameObject.transform.forward * 250);
                         hit.collider.gameObject.GetComponent<AI_Stats>().looseHealth(_attackDamage+10);
+                        hit.collider.gameObject.GetComponent<NavMeshAgent>().destination = hit.collider.gameObject.transform.position;
+                        _animator.SetInteger(("AttackNumber"), 3);
                         _hitsnumber = 0;
                         Instantiate(_exploPrefab, hit.point, Quaternion.identity);
                         print("boom");
                     }
                     else
                     {
+                        if (attackNumber == 1 )
+                        {
+                            _animator.SetInteger(("AttackNumber"), attackNumber);
+                            attackNumber = 2;
+                        }
+                        else if(attackNumber ==2 )
+                        {
+                            _animator.SetInteger(("AttackNumber"), attackNumber);
+                            attackNumber = 1;
+                        }
+                        else
+                        {
+                            _animator.SetInteger(("AttackNumber"), attackNumber);
+                            attackNumber = 1;
+                        }
+                        
                         Rigidbody rb = hit.collider.gameObject.GetComponent<Rigidbody>();
-                        rb.AddForce(gameObject.transform.forward * 100);
+                        rb.AddForce(gameObject.transform.forward * 200);
                         hit.collider.gameObject.GetComponent<AI_Stats>().looseHealth(_attackDamage);
                         _hitsnumber++;
                     }
+                    
+                    
+                    
                 
                 }
             }
+            _animator.SetTrigger("Punch");
             Invoke("ResetAttack", attackRate);
         }
         

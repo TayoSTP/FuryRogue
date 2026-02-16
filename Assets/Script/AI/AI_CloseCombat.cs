@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class AI_CloseCombat : MonoBehaviour
 {
@@ -12,6 +13,10 @@ public class AI_CloseCombat : MonoBehaviour
     private RaycastHit _hit;
     private float _distance =20;
     private AI_Stats _aiStats;
+    private bool canDash = true;
+    private bool moving;
+    private Rigidbody rb;
+    Animator anim;
 
     [SerializeField] private float _detectionRange;
     [SerializeField] private float _dashSpeed;
@@ -20,9 +25,13 @@ public class AI_CloseCombat : MonoBehaviour
     [SerializeField] private float _attackRate;
     [SerializeField] private float _hitDamage;
     [SerializeField] private float _maxHealth;
+    
+    public NavMeshAgent agent;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        rb = gameObject.GetComponent<Rigidbody>();
+        anim = gameObject.GetComponent<Animator>();
         _target = GameObject.FindGameObjectWithTag("Player");
         _currentHealth = _maxHealth;   
         _aiStats = GetComponent<AI_Stats>();
@@ -35,14 +44,15 @@ public class AI_CloseCombat : MonoBehaviour
         float distance = Vector3.Distance(_target.transform.position, transform.position);
         if (distance < _detectionRange  && _canMove)
         {
-            gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, _target.transform.position, _dashSpeed * Time.deltaTime);
+            DashToPlayer();
+            //gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, _target.transform.position, _dashSpeed * Time.deltaTime);
         }
         if (distance <= _acceptanceRange && !_rampage)
         {
             attack();
         }
         
-        if (_aiStats._currentHealth <= (_aiStats._maxHealth*30)/100)
+        if (_aiStats._currentHealth <= (_aiStats._maxHealth*40)/100)
         {
             _rampage = true;
             _canMove = true;
@@ -52,6 +62,15 @@ public class AI_CloseCombat : MonoBehaviour
         {
             _canMove = true;
         }
+        if (agent.velocity.magnitude > 0f )
+        {
+            moving = true;
+        }
+        else
+        {
+            moving = false;
+        }
+        
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -79,14 +98,33 @@ public class AI_CloseCombat : MonoBehaviour
         _canMove = false;
         if (_lastHit + _attackRate < Time.time)
         {
+            anim.SetTrigger("Punch");
             _target.GetComponent<PlayerStats>().looseHealth(_hitDamage);
             _lastHit = Time.time;
         }
         
     }
 
+    void DashToPlayer()
+    {
+        if (canDash)
+        {
+          agent.SetDestination(_target.transform.position);
+          canDash = false;
+          //Invoke("resetDash", 2);
+        }
+        
+    }
+
+    void resetDash()
+    {
+        canDash = true;
+    }
+
     private void FixedUpdate()
     {
+        anim.SetBool("Running", moving);
+        
         Physics.Raycast(transform.position + new Vector3(0,1,0), transform.forward, out _hit,_distance);
         if (_hit.collider != null)
         {

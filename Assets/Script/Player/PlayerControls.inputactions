@@ -35,12 +35,12 @@
                 },
                 {
                     "name": "Ability",
-                    "type": "Value",
+                    "type": "Button",
                     "id": "c2111ea4-0c0e-4a5e-ab7d-cfbde5c10ccf",
-                    "expectedControlType": "Analog",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": true
+                    "initialStateCheck": false
                 },
                 {
                     "name": "LightAttack",
@@ -64,6 +64,15 @@
                     "name": "Drink",
                     "type": "Button",
                     "id": "e923d884-048d-465f-bc78-f32ce3dfd27b",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Cheat",
+                    "type": "Button",
+                    "id": "b2902e46-6eb3-40f3-9090-93567ba8093f",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -160,9 +169,9 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "Right",
+                    "name": "Down",
                     "id": "7356bfd2-655a-4ab5-8245-73fb5b2aff14",
-                    "path": "<Keyboard>/rightArrow",
+                    "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -171,9 +180,9 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "Left",
+                    "name": "Up",
                     "id": "ad5c6261-796b-4c4c-a2db-dee920917e74",
-                    "path": "<Keyboard>/leftArrow",
+                    "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -222,6 +231,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Drink",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "15c5c929-92fb-4c33-aaa4-2338fbd60223",
+                    "path": "<Keyboard>/m",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Cheat",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -16,6 +16,7 @@ public class TestPlayerMovement : MonoBehaviour
     [SerializeField] private float _deceleration;
     [SerializeField] private float _decelAmount;
     [SerializeField] private float _maxSpeed;
+    [SerializeField] private float noClipSpeed;
     
     
     [Range(0.01f, 1)] [SerializeField] private float _accelInAir;
@@ -37,6 +38,7 @@ public class TestPlayerMovement : MonoBehaviour
     Vector2 _movement;
 
     private bool isJumping;
+    private bool cheat;
     bool isJumpFalling = false;
 
     private float targetSpeed;
@@ -62,8 +64,25 @@ public class TestPlayerMovement : MonoBehaviour
         #endregion
     }
 
+    void OnCheat()
+    {
+        if (!cheat)
+        {
+            gameObject.GetComponent<Collider>().isTrigger = true;
+            cheat = true;
+            _rb.isKinematic = true;
+        }
+        else
+        {
+            gameObject.GetComponent<Collider>().isTrigger = false;
+            cheat = false;
+            _rb.isKinematic = false;
+        }
+        
+    }
     void OnMove(InputValue value)
     {
+        
         _movement = value.Get<Vector2>();
         _animator.SetFloat("MovementValue", _movement.x);
     }
@@ -198,9 +217,19 @@ public class TestPlayerMovement : MonoBehaviour
         #endregion
         
         float speedDif = targetSpeed - _rb.linearVelocity.x;
-        
+
+        Vector3 move = new Vector3(_movement.x, _movement.y, 0);
+            
         float movement = speedDif * accelRate;
+        if (!cheat)
+        {
+            
+         _rb.AddForce(Vector3.right * movement, ForceMode.Force);   
+        }
+        else
+        {
+            gameObject.transform.position += (move *Time.deltaTime * noClipSpeed);
+        }
         
-        _rb.AddForce(Vector3.right * movement, ForceMode.Force);
     }
 }

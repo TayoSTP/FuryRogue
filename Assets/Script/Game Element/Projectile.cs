@@ -1,5 +1,7 @@
 using System;
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 
 public class Projectile : MonoBehaviour
 {
@@ -14,13 +16,25 @@ public class Projectile : MonoBehaviour
     void Start()
     {
         _rb = gameObject.GetComponent<Rigidbody>();
-        _rb.AddForce(transform.forward * _speed);
+        _rb.useGravity = false;
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public void LaunchArrow()
+    {
+        StartCoroutine(Launch());
+    }
+    
+     IEnumerator Launch()
+    {
+        yield return new WaitForSeconds(0.2f);
+        _rb.useGravity = true;
+        _rb.AddForce(transform.forward * _speed);
     }
 
     private void OnCollisionEnter(Collision collision)
