@@ -54,6 +54,10 @@ Material:
         m_Texture: {fileID: 2800000, guid: 72d95954c42e43540aa83eff10a55fc1, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Metalic_Roughness:
+        m_Texture: {fileID: 2800000, guid: 1049c3808fa421a409dfa065ea6692a7, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _Normal:
         m_Texture: {fileID: 2800000, guid: 9772beca9bff33943baea3937a746443, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -101,6 +105,7 @@ Material:
     - _ExcludeFromTUAndAA: 0
     - _MaterialID: 1
     - _MaterialTypeMask: 2
+    - _NormalModification: 0.1
     - _OpaqueCullMode: 2
     - _PerPixelSorting: 0
     - _RayTracing: 0
