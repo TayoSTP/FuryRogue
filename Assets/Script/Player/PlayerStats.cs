@@ -50,7 +50,7 @@ public class PlayerStats : MonoBehaviour
             DecreaseWater();
             gainHealth((_currentHealth*50)/100);
             canDrink = false;
-            Invoke("DecreaseWater", 2f);
+            Invoke("ResetDrink", 2f);
         }
         
     }
