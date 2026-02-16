@@ -100,6 +100,7 @@ public class AttackSystem : MonoBehaviour
 
     void OnLightAttack(InputValue value)
     {
+        
         if (canAttack)
         {
             
@@ -123,6 +124,7 @@ public class AttackSystem : MonoBehaviour
                     }
                     else
                     {
+                        print("next");
                         if (attackNumber == 1 )
                         {
                             _animator.SetInteger(("AttackNumber"), attackNumber);
@@ -135,17 +137,18 @@ public class AttackSystem : MonoBehaviour
                         }
                         else
                         {
-                            _animator.SetInteger(("AttackNumber"), attackNumber);
                             attackNumber = 1;
+                            _animator.SetInteger(("AttackNumber"), attackNumber);
+                            
                         }
-                        
-                        Rigidbody rb = hit.collider.gameObject.GetComponent<Rigidbody>();
-                        rb.AddForce(gameObject.transform.forward * 200);
-                        hit.collider.gameObject.GetComponent<AI_Stats>().looseHealth(_attackDamage);
-                        _hitsnumber++;
+                        _animator.SetTrigger("Punch");
+                        Invoke("ResetAttack", attackRate);
                     }
                     
-                    
+                    Rigidbody _rb = hit.collider.gameObject.GetComponent<Rigidbody>();
+                    _rb.AddForce(gameObject.transform.forward * 200);
+                    hit.collider.gameObject.GetComponent<AI_Stats>().looseHealth(_attackDamage);
+                    _hitsnumber++;
                     
                 
                 }
