@@ -11,6 +11,7 @@ public class AI_Boss : MonoBehaviour
     private float _lastShot;
     private float _lastHit;
     private bool _chase = false;
+    private bool canRange = true;
     
     public GameObject[] _spawnPoints;
     public GameObject[] _ennemies;
@@ -21,6 +22,7 @@ public class AI_Boss : MonoBehaviour
     [SerializeField] private GameObject _projectileSpawnSocket;
     [SerializeField] private float _meleeAttackRate;
     [SerializeField] private float _bigAttackRate;
+    [SerializeField] private GameObject _fireSpitPrefab;
     
     [Header("Detection")]
     [SerializeField] private float _SightRange;
@@ -37,6 +39,7 @@ public class AI_Boss : MonoBehaviour
     public LayerMask _whatIsPlayer;
 
     public NavMeshAgent agent;
+    Animator _animator;
     
     private AI_Stats _AIStats;
     
@@ -45,6 +48,7 @@ public class AI_Boss : MonoBehaviour
         _player = GameObject.FindGameObjectWithTag("Player");
         agent = GetComponent<NavMeshAgent>();
         _AIStats = gameObject.GetComponent<AI_Stats>();
+        _animator = gameObject.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -57,7 +61,7 @@ public class AI_Boss : MonoBehaviour
         //if(_PlayerInSight && !_PlayerInRange && _player.transform.position.y > transform.position.y + 2) AttackPlayer();
         
         if(_PlayerInSight && !_PlayerInMeleRange && !_PlayerInDistanceRange) ChasePlayer();
-        if (_PlayerInSight && !_PlayerInMeleRange && _PlayerInDistanceRange) RangeAttack();
+        if (_PlayerInSight && !_PlayerInMeleRange && _PlayerInDistanceRange) StartCoroutine(RangeAttack());
         if (_PlayerInSight && _PlayerInMeleRange && _PlayerInDistanceRange) AttackPlayer();
         
 
@@ -69,15 +73,25 @@ public class AI_Boss : MonoBehaviour
         }
     }
     
-    void RangeAttack()
+    IEnumerator RangeAttack()
     {
-        if (Time.time > _lastShot + _rangeAttackFireRate)
+        if (canRange)
         {
-            //Instantiate(_projectilePrefab, _projectileSpawnSocket.transform.position, _projectileSpawnSocket.transform.rotation);
+            canRange = false;
+            gameObject.transform.LookAt(_player.transform);
+            _animator.SetTrigger("FireSpit");
+            yield return new WaitForSeconds(0.5f);
+            Instantiate(_fireSpitPrefab, _projectileSpawnSocket.transform.position, _projectileSpawnSocket.transform.rotation);
             agent.SetDestination(transform.position);
             _lastShot = Time.time;
             print("Range");
+            Invoke("ResetRange", _rangeAttackFireRate);
         }
+    }
+
+    void ResetRange()
+    {
+        canRange = true;
     }
 
     void ChasePlayer()
@@ -107,6 +121,7 @@ public class AI_Boss : MonoBehaviour
         //transform.LookAt(_player.transform);
         if (!_alreadyAttacked)
         {
+            
             agent.SetDestination(transform.position);
             _alreadyAttacked = true;
             
@@ -126,6 +141,7 @@ public class AI_Boss : MonoBehaviour
     {
         if (!_alreadyBigAttack)
         {
+            _animator.SetTrigger("MinionCast");
             _alreadyBigAttack = true;
             print("MAAAD");
             
