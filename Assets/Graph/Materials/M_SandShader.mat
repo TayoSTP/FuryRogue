@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-2334451787945435410
+--- !u!114 &-2483776790632387849
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -23,8 +23,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_Sand
-  m_Shader: {fileID: -6465566751694194690, guid: 52332be4f17dc744eb465f47b8bbeb2e, type: 3}
+  m_Name: M_SandShader
+  m_Shader: {fileID: -6465566751694194690, guid: 4a91f5d26ab8b164fa53660f3ef22753, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
@@ -46,28 +46,32 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _AO:
+    - _BaseTexture:
+        m_Texture: {fileID: 2800000, guid: 50e8d8e76b0081f47ba83d218e1281eb, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Height:
         m_Texture: {fileID: 2800000, guid: 60a38689a9724454392f95058e7c7149, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _Albedo:
-        m_Texture: {fileID: 2800000, guid: 611644e7218878b4dbb5b81d874edc8a, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _Metalic_Roughness:
-        m_Texture: {fileID: 2800000, guid: 4e6fe6bac6211694c97a497162ed04a8, type: 3}
+    - _Mask:
+        m_Texture: {fileID: 2800000, guid: 60a38689a9724454392f95058e7c7149, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Normal:
         m_Texture: {fileID: 2800000, guid: e0b8b65471696874b840e4fd2f5a4681, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _Roughness:
-        m_Texture: {fileID: 2800000, guid: 60a38689a9724454392f95058e7c7149, type: 3}
+    - _SandMask:
+        m_Texture: {fileID: 2800000, guid: 9a805c6aaf5e81648bfcc96f83e7601a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _SampleTexture2D_988848a0e3634a20a63c9b3483646944_Texture_1_Texture2D:
-        m_Texture: {fileID: 0}
+    - _SandNormal:
+        m_Texture: {fileID: 2800000, guid: d13a5661285342c4c8965f4fa2c5c9d8, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SandTexture:
+        m_Texture: {fileID: 2800000, guid: 611644e7218878b4dbb5b81d874edc8a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -89,7 +93,6 @@ Material:
     - _AlphaDstBlend: 0
     - _AlphaSrcBlend: 1
     - _BlendMode: 0
-    - _ColorModification: 6.77
     - _ConservativeDepthOffsetEnable: 0
     - _CullMode: 2
     - _CullModeForward: 2
@@ -99,14 +102,13 @@ Material:
     - _DoubleSidedNormalMode: 2
     - _DstBlend: 0
     - _DstBlend2: 0
-    - _Emissive: 0
-    - _EmissivePower: 0.1
     - _EnableBlendModePreserveSpecularLighting: 1
     - _EnableFogOnTransparent: 1
     - _ExcludeFromTUAndAA: 0
     - _MaterialID: 1
     - _MaterialTypeMask: 2
-    - _NormalModification: 0.5
+    - _Metallic: 0
+    - _NormalScale: 1
     - _OpaqueCullMode: 2
     - _PerPixelSorting: 0
     - _RayTracing: 0
@@ -115,8 +117,9 @@ Material:
     - _RefractionModel: 0
     - _RenderQueueType: 1
     - _RequireSplitLighting: 0
-    - _RoughnessTwiking: 0
-    - _SaturationAdd: 1
+    - _SandNormalIntensity: 1
+    - _SandTiling: 0
+    - _Smoothness: 0.5
     - _SrcBlend: 1
     - _StencilRef: 0
     - _StencilRefDepth: 8
@@ -130,7 +133,7 @@ Material:
     - _StencilWriteMaskMV: 41
     - _SupportDecals: 1
     - _SurfaceType: 0
-    - _Tiling: 0.1
+    - _Tilling: 1
     - _TransmissionEnable: 1
     - _TransparentBackfaceEnable: 0
     - _TransparentCullMode: 2
@@ -145,8 +148,8 @@ Material:
     - _ZTestTransparent: 4
     - _ZWrite: 1
     m_Colors:
+    - _BaseColor: {r: 1, g: 0.77487135, b: 0.504717, a: 0}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
-    - _EmissiveColor: {r: 0.9811321, g: 0.4105457, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
