@@ -8,6 +8,7 @@ public class Projectile : MonoBehaviour
     private Rigidbody _rb;
     [SerializeField] float _speed;
     [SerializeField] float _damage;
+    public GameObject parent;
 
     public bool Explosif;
 
@@ -16,7 +17,7 @@ public class Projectile : MonoBehaviour
     void Start()
     {
         _rb = gameObject.GetComponent<Rigidbody>();
-        _rb.useGravity = false;
+        _rb.AddForce(transform.forward * _speed, ForceMode.Impulse);
     }
 
     // Update is called once per frame
@@ -27,30 +28,34 @@ public class Projectile : MonoBehaviour
 
     public void LaunchArrow()
     {
-        StartCoroutine(Launch());
+        
     }
     
-     IEnumerator Launch()
-    {
-        yield return new WaitForSeconds(0.2f);
-        _rb.useGravity = true;
-        _rb.AddForce(transform.forward * _speed);
-    }
+     
+        
+        
+        
+    
 
     private void OnCollisionEnter(Collision collision)
     {
-        print(collision.gameObject.name);
-        if (collision.gameObject.CompareTag("Player"))
+        print(collision.gameObject + "+" + parent);
+        if (collision.gameObject != parent)
         {
-            collision.gameObject.GetComponent<PlayerStats>().looseHealth(_damage);
+            if (collision.gameObject.CompareTag("Player") )
+            {
+                collision.gameObject.GetComponent<PlayerStats>().looseHealth(_damage);
             
-        }
+            }
 
-        if (Explosif)
-        {
-            Instantiate(_ExplosionPrefab, collision.contacts[0].point, Quaternion.identity);
+            if (Explosif)
+            {
+                Instantiate(_ExplosionPrefab, collision.contacts[0].point, Quaternion.identity);
+            }
+            Destroy(gameObject);
         }
         
-        Destroy(gameObject);
+        
+        
     }
 }
