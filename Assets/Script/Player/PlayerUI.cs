@@ -12,6 +12,7 @@ public class PlayerUI : MonoBehaviour
     [Header("Water elements")]
     public TextMeshProUGUI waterText;
     public Image waterImage;
+    public Image lifebarImage;
     public Texture2D newWaterImage;
     
     
@@ -30,5 +31,6 @@ public class PlayerUI : MonoBehaviour
         scrapText.text = playerStats.scraps.ToString();
         
         waterText.text = playerStats.water.ToString();
+        lifebarImage.fillAmount = playerStats._currentHealth / playerStats._maxHealth;
     }
 }
