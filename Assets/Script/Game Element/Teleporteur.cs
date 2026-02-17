@@ -19,6 +19,7 @@ public class Teleporteur : MonoBehaviour
     public CanvasGroup canvasGroup;
     private Coroutine alphaChange;
     public GameObject newCamera;
+    public GameObject previousCamera;
     List<Camera> cam;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -53,6 +54,7 @@ public class Teleporteur : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
+        previousCamera.SetActive(false);
         canTeleport = false;
     }
 
