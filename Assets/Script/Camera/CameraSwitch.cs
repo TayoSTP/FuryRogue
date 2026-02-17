@@ -52,7 +52,7 @@ public class CameraSwitch : MonoBehaviour
         {
             //ector3 pos = _player.transform.position + _offset;
             _cameraObject.transform.position = Vector3.SmoothDamp(_cameraObject.transform.position, _cameraPosition.transform.position,ref _velocity,_SmoothTime );
-            _triggered = false;
+            //_triggered = false;
         }
 
         if (_followCamera)
