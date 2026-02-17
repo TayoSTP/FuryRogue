@@ -12,16 +12,18 @@ public class Teleporteur : MonoBehaviour
     GameObject UI;
     GameObject player;
 
-    private bool canTeleport;
+    public bool canTeleport;
 
     public float fadeDuration = 1.5f;
+    public float waitDuration = 1;
     public CanvasGroup canvasGroup;
     private Coroutine alphaChange;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        FadeIn();
+        //canvasGroup.alpha = 0;
+        //FadeIn();
     }
 
     // Update is called once per frame
@@ -36,6 +38,7 @@ public class Teleporteur : MonoBehaviour
         {
             player = other.gameObject;
             other.transform.position = destination.transform.position;
+            FadeIn();
         }
         else if(other.tag == "Player" && interact)
         {
@@ -77,10 +80,10 @@ public class Teleporteur : MonoBehaviour
     {
         float timePassed = 0;
         float startAlpha = canvasGroup.alpha;
-
+        yield return new WaitForSeconds(waitDuration);
         while (timePassed < fadeDuration)
         {
-         timePassed += timePassed + Time.deltaTime;
+         timePassed +=  Time.deltaTime;
          
          canvasGroup.alpha = Mathf.Lerp(startAlpha, alpha, timePassed / fadeDuration);
          
