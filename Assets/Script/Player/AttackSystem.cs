@@ -4,7 +4,6 @@ using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine.AI;
 using UnityEngine.InputSystem;
-using UnityEngine.WSA;
 using Random = UnityEngine.Random;
 
 public class AttackSystem : MonoBehaviour
@@ -46,10 +45,6 @@ public class AttackSystem : MonoBehaviour
     void Start()
     {
         _ammo = gameObject.GetComponent<PlayerStats>()._ammo;
-        _segments = new Vector2[_segmentCount];
-        
-        _lineRenderer = GetComponent<LineRenderer>();
-        _lineRenderer.positionCount = _segmentCount;
         
         _animator.SetInteger(("AttackNumber"), attackNumber);
     }
@@ -80,18 +75,19 @@ public class AttackSystem : MonoBehaviour
             _animator.SetTrigger("EquipCrossbow");
         }
 
-        /*    if (Time.time > _lastShot + _fireRate && _ammo > 0)
+        if (Time.time > _lastShot + _fireRate && _ammo > 0 && arrowInHand)
             {
+                _arrowPrefab.GetComponent<Projectile>().parent = this.gameObject;
                 arrow =  Instantiate(_arrowPrefab, _muzzle.transform.position, _muzzle.transform.rotation);
+                
 
 
                 _lastShot = Time.time;
                 _ammo--;
             }
-        }*/
+        
         if(!arrowInHand)
         {
-            
             _animator.SetTrigger("EquipCrossbow");
             arrowInHand = true;
         }
