@@ -38,6 +38,7 @@ public class AttackSystem : MonoBehaviour
 
     private PlayerControls controls;
     private GameObject arrow;
+    public GameObject Crossbow;
 
 
     
@@ -52,6 +53,14 @@ public class AttackSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (arrowInHand)
+        {
+            Crossbow.SetActive(true);
+        }
+        else
+        {
+            Crossbow.SetActive(false);
+        }
        /* Vector2 startPos = _muzzle.transform.position;
         _segments[0] = startPos;
         _lineRenderer.SetPosition(0, startPos);
@@ -99,7 +108,7 @@ public class AttackSystem : MonoBehaviour
         
         if (canAttack)
         {
-            
+            arrowInHand = false;
             Vector3 fwd = transform.TransformDirection(Vector3.forward);
             Vector3 castOrigin = new Vector3(transform.position.x, transform.position.y +1, transform.position.z);
             if (Physics.Raycast(castOrigin, fwd, out RaycastHit hit, 1.2f))

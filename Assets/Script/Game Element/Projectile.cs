@@ -17,7 +17,7 @@ public class Projectile : MonoBehaviour
     void Start()
     {
         _rb = gameObject.GetComponent<Rigidbody>();
-        _rb.AddForce(transform.forward * _speed);
+        _rb.AddForce(transform.forward * _speed, ForceMode.Impulse);
     }
 
     // Update is called once per frame
