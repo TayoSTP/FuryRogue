@@ -54,7 +54,7 @@ BoxCollider:
   m_ProvidesContacts: 1
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.14, y: 0.14, z: 1}
+  m_Size: {x: 0.08, y: 0.08, z: 1}
   m_Center: {x: 0, y: 0, z: 0.03}
 --- !u!114 &-1721344794507402711
 MonoBehaviour:
@@ -68,8 +68,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f84fc71af644a541aed2937f18e1092, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 650
+  _speed: 50
   _damage: 0
+  parent: {fileID: 0}
   Explosif: 1
   _ExplosionPrefab: {fileID: 6979859464678593287, guid: 4707dc1f77b730842a4af527e6b5da0c, type: 3}
 --- !u!54 &2565158036608833316
@@ -109,15 +110,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: d072f807f342d0c4db21576f91315457, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d072f807f342d0c4db21576f91315457, type: 3}
       propertyPath: m_LocalScale.y
-      value: 2
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d072f807f342d0c4db21576f91315457, type: 3}
       propertyPath: m_LocalScale.z
-      value: 2
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d072f807f342d0c4db21576f91315457, type: 3}
       propertyPath: m_LocalPosition.x
@@ -158,6 +159,10 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: d072f807f342d0c4db21576f91315457, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d072f807f342d0c4db21576f91315457, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d072f807f342d0c4db21576f91315457, type: 3}
       propertyPath: m_Name
