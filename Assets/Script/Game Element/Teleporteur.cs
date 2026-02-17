@@ -8,7 +8,7 @@ using UnityEngine.InputSystem;
 public class Teleporteur : MonoBehaviour
 {
     public bool interact;
-    GameObject destination;
+    public GameObject destination;
     GameObject UI;
     GameObject player;
 
@@ -40,7 +40,7 @@ public class Teleporteur : MonoBehaviour
         else if(other.tag == "Player" && interact)
         {
             canTeleport = true;
-            Instantiate(UI, transform.position + new Vector3(0,10,0), Quaternion.identity);
+          //  Instantiate(UI, transform.position + new Vector3(0,10,0), Quaternion.identity);
             player = other.gameObject;
         }
     }
