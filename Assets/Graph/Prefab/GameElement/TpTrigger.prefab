@@ -107,7 +107,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 3.16, y: 1.12, z: 3.52}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1242972623288551994
 MonoBehaviour:
@@ -122,5 +122,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interact: 0
+  destination: {fileID: 0}
+  canTeleport: 0
   fadeDuration: 1.5
+  waitDuration: 0.25
   canvasGroup: {fileID: 0}
