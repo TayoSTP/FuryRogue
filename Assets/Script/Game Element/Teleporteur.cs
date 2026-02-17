@@ -83,6 +83,8 @@ public class Teleporteur : MonoBehaviour
     {
         float timePassed = 0;
         float startAlpha = canvasGroup.alpha;
+        cam.ForEach(x => x.gameObject.SetActive(false));
+        newCamera.SetActive(true);
         yield return new WaitForSeconds(waitDuration);
         while (timePassed < fadeDuration)
         {
@@ -92,8 +94,7 @@ public class Teleporteur : MonoBehaviour
          
          yield return null;
         }
-        cam.ForEach(x => x.gameObject.SetActive(false));
-        newCamera.SetActive(true);
+        
         canvasGroup.alpha = alpha;
 
     }
