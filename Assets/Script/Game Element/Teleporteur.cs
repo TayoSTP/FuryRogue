@@ -18,12 +18,15 @@ public class Teleporteur : MonoBehaviour
     public float waitDuration = 1;
     public CanvasGroup canvasGroup;
     private Coroutine alphaChange;
+    public GameObject newCamera;
+    List<Camera> cam;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         //canvasGroup.alpha = 0;
         //FadeIn();
+        cam = new List<Camera>().FindAll(x => x.gameObject.name == "MainCamera");
     }
 
     // Update is called once per frame
@@ -89,6 +92,9 @@ public class Teleporteur : MonoBehaviour
          
          yield return null;
         }
+        cam.ForEach(x => x.gameObject.SetActive(false));
+        newCamera.SetActive(true);
         canvasGroup.alpha = alpha;
+
     }
 }
