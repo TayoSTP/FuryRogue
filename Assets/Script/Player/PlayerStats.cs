@@ -39,7 +39,7 @@ public class PlayerStats : MonoBehaviour
     // Update is called once per frame
     private void FixedUpdate()
     {
-        
+        print(_currentHealth);
     }
 
     public void looseHealth(float damage)
