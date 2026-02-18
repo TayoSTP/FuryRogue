@@ -3,7 +3,17 @@ guid: 070c039885c4a4a4487fc97aed9519b3
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Furiosa
+    second: {fileID: 2100000, guid: 2c2445b842919674fa1c518a2d9845ce, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Furiosa02
+    second: {fileID: 2100000, guid: e128f1e95f4b58644881e4dc2a6fe28c, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
