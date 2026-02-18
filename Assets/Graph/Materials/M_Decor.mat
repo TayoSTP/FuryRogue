@@ -47,19 +47,19 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _AO:
-        m_Texture: {fileID: 2800000, guid: b24ad3caf71fb0a408e77fe9478b9e69, type: 3}
+        m_Texture: {fileID: 2800000, guid: 0cf2c92e5d4057d4ba31b36c54a808ba, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Albedo:
-        m_Texture: {fileID: 2800000, guid: 99eac6cd9ababb74aabc347781d7193f, type: 3}
+        m_Texture: {fileID: 2800000, guid: a30fd24f51f933e40a695b7bd9768dd5, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Metalic_Roughness:
-        m_Texture: {fileID: 2800000, guid: b24ad3caf71fb0a408e77fe9478b9e69, type: 3}
+        m_Texture: {fileID: 2800000, guid: 0cf2c92e5d4057d4ba31b36c54a808ba, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Normal:
-        m_Texture: {fileID: 2800000, guid: 81460039e3748d6428f3c6059a02d238, type: 3}
+        m_Texture: {fileID: 2800000, guid: 7ce32f188ca27094f8bfc2adcc5a4012, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Roughness:
@@ -105,6 +105,7 @@ Material:
     - _ExcludeFromTUAndAA: 0
     - _MaterialID: 1
     - _MaterialTypeMask: 2
+    - _NormalModification: 0.1
     - _OpaqueCullMode: 2
     - _PerPixelSorting: 0
     - _RayTracing: 0
