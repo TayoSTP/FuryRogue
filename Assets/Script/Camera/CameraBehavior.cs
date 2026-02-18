@@ -11,11 +11,17 @@ public class CameraBehavior : MonoBehaviour
     private GameObject _player;
     [SerializeField] float _yMin  ;
     [SerializeField] float _yMax = 15;
+    [SerializeField] float _xMax;
+    [SerializeField] float _xMin;
+    [SerializeField] GameObject borderRight;
+    [SerializeField] GameObject borderLeft;
     
     private float _duration = 3f;
 
     private void Start()
     {
+       // _xMin = borderLeft.transform.position.x;
+        //_xMax = borderRight.transform.position.x;
         _player = GameObject.FindGameObjectWithTag("Player");
         gameObject.transform.position= new Vector3(_player.transform.position.x,_player.transform.position.y,-2.8f);
     }
@@ -25,7 +31,8 @@ public class CameraBehavior : MonoBehaviour
         if (_canFollow)
         {
             float y = Mathf.Clamp(_player.transform.position.y, _yMin, _yMax);
-            Vector3 pos = new Vector3(_player.transform.position.x, y, _player.transform.position.z) + _offset;
+            float x = Mathf.Clamp(_player.transform.position.x, _xMin, _xMax);
+            Vector3 pos = new Vector3(x, y, _player.transform.position.z) + _offset;
             
             gameObject.transform.position = Vector3.SmoothDamp(gameObject.transform.position, pos,ref _velocity,_SmoothTime );
             
@@ -37,7 +44,7 @@ public class CameraBehavior : MonoBehaviour
     void LateUpdate()
     {
         
-        //float x = Mathf.Clamp(_player.transform.position.x, _xMin, _xMax);
+        
        // float y = Mathf.Clamp(_player.transform.position.y, _yMin, _yMax);
         
         //gameObject.transform.position = new Vector3(gameObject.transform.position.x, y, gameObject.transform.position.z); 
