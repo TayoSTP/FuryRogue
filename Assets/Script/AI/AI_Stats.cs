@@ -7,6 +7,9 @@ public class AI_Stats : MonoBehaviour
     public float _currentHealth;
     Animator _animator;
     PlayerStats _playerStats;
+    bool isDead = false;
+    
+    [SerializeField] GameObject scrap;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -21,6 +24,7 @@ public class AI_Stats : MonoBehaviour
     {
         if (_currentHealth <= 0)
         {
+            isDead = true;
             death();
         }
     }
@@ -33,8 +37,18 @@ public class AI_Stats : MonoBehaviour
 
     void death()
     {
-        _playerStats.EnnemyKilled++;
-        Destroy(gameObject);
-        //_animator.SetTrigger("Death");
+        if (isDead)
+        {
+            isDead = false;
+            _playerStats.EnnemyKilled++;
+            Instantiate(scrap, transform.position, Quaternion.identity);
+            Destroy(gameObject);
+                  //_animator.SetTrigger("Death"); 
+            
+            
+        }
+        
     }
+
+    
 }
