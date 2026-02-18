@@ -27,13 +27,13 @@ public class Teleporteur : MonoBehaviour
     {
         //canvasGroup.alpha = 0;
         //FadeIn();
-        cam = new List<Camera>().FindAll(x => x.gameObject.name == "MainCamera");
+        cam = new List<Camera>().FindAll(x => x.gameObject.CompareTag("MainCamera"));
     }
 
     // Update is called once per frame
     void Update() 
     {
-        
+        print(cam);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -54,8 +54,9 @@ public class Teleporteur : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        previousCamera.SetActive(false);
         canTeleport = false;
+        previousCamera.SetActive(false);
+        
     }
 
     void OnInteract(InputValue value)
