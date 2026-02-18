@@ -97,9 +97,9 @@ MonoBehaviour:
   _dashSpeed: 10
   _explosionPrefab: {fileID: 0}
   _acceptanceRange: 2
-  _attackRate: 1
-  _hitDamage: 15
-  _maxHealth: 50
+  _attackRate: 0.5
+  _hitDamage: 5
+  _maxHealth: 20
   agent: {fileID: 9124991951088153492}
 --- !u!114 &7842497351591734648
 MonoBehaviour:
@@ -113,7 +113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fddd8f8df1cea3458cd7a919fb6886e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 1000
+  _maxHealth: 40
   _currentHealth: 0
 --- !u!136 &4895339345156235786
 CapsuleCollider:

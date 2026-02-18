@@ -158,12 +158,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 4245904778317723174}
-  _ammo: 15
-  _fireRate: 1
+  _ammo: 5
+  _fireRate: 0.25
   _projectile: {fileID: 2995246691608531421, guid: 1a1e6ceac49da0b47b2c4cc486b749ed, type: 3}
   _projectileSpawn: {fileID: 998117899473954671}
   _dashSpeed: 8
-  _explosionDamage: 25
+  _explosionDamage: 20
   _detectionRange: 15
   _targetRotationAdd: {x: 0, y: 0, z: 0, w: 0}
   animWait: 0.8
