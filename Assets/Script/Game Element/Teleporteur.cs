@@ -41,8 +41,9 @@ public class Teleporteur : MonoBehaviour
         if (other.tag == "Player" && !interact)
         {
             player = other.gameObject;
-            other.transform.position = destination.transform.position;
             FadeIn();
+            other.transform.position = destination.transform.position;
+            
         }
         else if(other.tag == "Player" && interact)
         {
