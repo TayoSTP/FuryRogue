@@ -442,7 +442,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8540107350105241773}
   - component: {fileID: 7556912688000249679}
-  - component: {fileID: 8953379700370270355}
+  - component: {fileID: 3210883415132507127}
   m_Layer: 5
   m_Name: RIMG_Stamina
   m_TagString: Untagged
@@ -477,7 +477,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2346171418639080091}
   m_CullTransparentMesh: 1
---- !u!114 &8953379700370270355
+--- !u!114 &3210883415132507127
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -486,7 +486,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2346171418639080091}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
@@ -497,13 +497,91 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: d5120b55afafd7a4b86fe8e7a4fe8680, type: 3}
-  m_UVRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
+  m_Sprite: {fileID: 21300000, guid: d5120b55afafd7a4b86fe8e7a4fe8680, type: 3}
+  m_Type: 3
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 0
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!1 &2654928203042967117
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2541918839041148684}
+  - component: {fileID: 995198829433190210}
+  - component: {fileID: 1387690737682315164}
+  m_Layer: 5
+  m_Name: RIMG_EmptyStamina
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2541918839041148684
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2654928203042967117}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6133315425438300851}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -721, y: 359}
+  m_SizeDelta: {x: 250, y: 120}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &995198829433190210
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2654928203042967117}
+  m_CullTransparentMesh: 1
+--- !u!114 &1387690737682315164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2654928203042967117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: ec2e2f9f930fda9479f05695e1e00da4, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &3588095822574149196
 GameObject:
   m_ObjectHideFlags: 0
@@ -614,6 +692,7 @@ RectTransform:
   - {fileID: 2718126133007829004}
   - {fileID: 3822585328384541499}
   - {fileID: 5936719754546530963}
+  - {fileID: 2541918839041148684}
   - {fileID: 8540107350105241773}
   - {fileID: 1196957500991711814}
   - {fileID: 7968428448023241157}
@@ -699,12 +778,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd7a27396b990804e949d913ace7d9b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scrapText: {fileID: 0}
+  scrapText: {fileID: 4456712125096884021}
   scrapImage: {fileID: 0}
   newScrapImage: {fileID: 0}
   waterText: {fileID: 0}
   waterImage: {fileID: 0}
   lifebarImage: {fileID: 1907984506360225934}
+  staminaImage: {fileID: 3210883415132507127}
+  waterBarImage: {fileID: 609097740512734890}
   newWaterImage: {fileID: 0}
 --- !u!1 &4454849585734704653
 GameObject:

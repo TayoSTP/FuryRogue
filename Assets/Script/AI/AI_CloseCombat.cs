@@ -43,6 +43,10 @@ public class AI_CloseCombat : MonoBehaviour
         
         //gameObject.transform.LookAt(_target.transform.position);
         float distance = Vector3.Distance(_target.transform.position, transform.position);
+        if (distance < _detectionRange)
+        {
+            gameObject.transform.rotation = Quaternion.LookRotation(_target.transform.position - transform.position);
+        }
         if (distance < _detectionRange  && _canMove)
         {
             DashToPlayer();
@@ -60,7 +64,7 @@ public class AI_CloseCombat : MonoBehaviour
             _canMove = true;
         }
 
-        if (!_canMove && distance > _detectionRange/2 )
+        if (!_canMove && distance > _detectionRange/3 )
         {
             _canMove = true;
         }
@@ -143,6 +147,6 @@ public class AI_CloseCombat : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.magenta;
-        Gizmos.DrawRay(gameObject.transform.position + new Vector3(0,1,0),  gameObject.transform.forward * _distance);
+        Gizmos.DrawRay(gameObject.transform.position + new Vector3(0,1,0),  gameObject.transform.forward * _detectionRange);
     }
 }

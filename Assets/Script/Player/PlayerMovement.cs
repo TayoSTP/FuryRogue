@@ -15,6 +15,8 @@ public class TestPlayerMovement : MonoBehaviour
     [SerializeField] private float _accelAmount;
     [SerializeField] private float _deceleration;
     [SerializeField] private float _decelAmount;
+    [SerializeField] private float _normalSpeed;
+    [SerializeField] private float _slowedSpeed;
     [SerializeField] private float _maxSpeed;
     [SerializeField] private float noClipSpeed;
     
@@ -42,7 +44,11 @@ public class TestPlayerMovement : MonoBehaviour
     bool isJumpFalling = false;
 
     private float targetSpeed;
+    private bool canJump = true;
+    PlayerStats playerStats;
     
+    private bool restoreStam;
+    private float lastRestore;
     
     [SerializeField] Animator _animator;
 
@@ -51,6 +57,7 @@ public class TestPlayerMovement : MonoBehaviour
         _rb = GetComponent<Rigidbody>();
         _currentGravityScale = _gravityScale;
         //_animator = gameObject.GetComponent<Animator>();
+        playerStats = GetComponent<PlayerStats>();
     }
 
     private void OnValidate()
@@ -89,8 +96,9 @@ public class TestPlayerMovement : MonoBehaviour
 
     void OnJump(InputValue value)
     {
-        if (_grounded)
+        if (_grounded && canJump)
         {
+            canJump = false;
             _animator.SetTrigger("Jump");
             float jumpForce = _jumpForce;
             if (_rb.linearVelocity.y < 0)
@@ -98,6 +106,8 @@ public class TestPlayerMovement : MonoBehaviour
                 jumpForce -= _rb.linearVelocity.y;
             }
             _rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            
+            Invoke("ResetJump", 1f);
             /*if (_movement != Vector2.zero)
             {
                 _rb.AddForce(Vector3.forward * _movement * 6.25f, ForceMode.Impulse);   
@@ -107,6 +117,11 @@ public class TestPlayerMovement : MonoBehaviour
         }
     }
 
+    void ResetJump()
+    {
+        canJump = true;
+    }
+
     void OnDash(InputValue value)
     {
         if(_canDash) StartCoroutine("dash");
@@ -114,15 +129,49 @@ public class TestPlayerMovement : MonoBehaviour
     private void Update()
     {
         targetSpeed = _movement.magnitude;
-        //Grounded Check
         
-        if (Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, 1.1f))
+        //Grounded Check
+        if (_movement.x != 0 && !restoreStam)
+        {
+            
+            playerStats.currentStamina -= Time.deltaTime + 0.3f;
+        }
+        else if (playerStats.currentStamina < playerStats.maxStamina )
+        {
+            playerStats.currentStamina += Time.deltaTime + 0.5f;
+        }
+
+        if (playerStats.currentStamina <= 0)
+        {
+            restoreStam = true;
+        }
+
+        if (restoreStam)
+        {
+            
+            if(playerStats.currentStamina < playerStats.maxStamina)
+            {
+                _maxSpeed = _slowedSpeed;
+                playerStats.currentStamina += Time.deltaTime + 0.5f;
+                    
+            }
+            else
+            { 
+                restoreStam = false;
+                _maxSpeed = _normalSpeed;
+            }
+            
+        }
+        
+        if (Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, 1.25f))
         { 
-            _grounded = true;   
+            _grounded = true;
+            _animator.SetBool("Falling", false);
         }
         else
         {
             _grounded = false;
+            _animator.SetBool("Falling", true);
         }
         
     }
@@ -139,13 +188,15 @@ public class TestPlayerMovement : MonoBehaviour
         
         _animator.SetBool("IsWalking", _movement.x != 0);
         Run();
-        if (_rb.linearVelocity.y < 0)
+        if (_rb.linearVelocity.y < 0.1f)
         {
             _rb.AddForce((Vector3.down * (_gravityScale + 1.5f)), ForceMode.Acceleration);
+            _animator.SetBool("Falling", true);
         }
         else
         {
             _rb.AddForce((Vector3.down * _gravityScale), ForceMode.Acceleration);
+            _animator.SetBool("Falling", false);
         }
         //movement
         /*float speedDif = targetSpeed - _rb.linearVelocity.x;
