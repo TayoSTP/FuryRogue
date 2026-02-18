@@ -40,7 +40,11 @@ public class AI_Boss : MonoBehaviour
 
     public NavMeshAgent agent;
     Animator _animator;
+    public GameObject fireCollider;
+    public GameObject bossHead;
     
+    float lastSpit;
+    int fireAmount;
     private AI_Stats _AIStats;
     
     void Start()
@@ -63,8 +67,14 @@ public class AI_Boss : MonoBehaviour
         if(_PlayerInSight && !_PlayerInMeleRange && !_PlayerInDistanceRange) ChasePlayer();
         if (_PlayerInSight && !_PlayerInMeleRange && _PlayerInDistanceRange) StartCoroutine(RangeAttack());
         if (_PlayerInSight && _PlayerInMeleRange && _PlayerInDistanceRange) AttackPlayer();
-        
 
+        if (_PlayerInSight)
+        {
+            //fireCollider.transform.LookAt(_player.transform.position);
+            //_projectileSpawnSocket.transform.LookAt(_player.transform.position);
+            
+            bossHead.transform.LookAt(_player.transform);
+        }
         float health = _AIStats._currentHealth;
         if(health <= 50)
         {
@@ -75,16 +85,35 @@ public class AI_Boss : MonoBehaviour
     
     IEnumerator RangeAttack()
     {
+        
         if (canRange)
         {
+            fireCollider.gameObject.SetActive(true);
+            gameObject.transform.LookAt(_player.transform);
             canRange = false;
             gameObject.transform.LookAt(_player.transform);
             _animator.SetTrigger("FireSpit");
-            yield return new WaitForSeconds(0.5f);
-            Instantiate(_fireSpitPrefab, _projectileSpawnSocket.transform.position, _projectileSpawnSocket.transform.rotation);
+            yield return new WaitForSeconds(0.4f);
+            
+            while (fireAmount < 20)
+            {
+                Instantiate(_fireSpitPrefab, _projectileSpawnSocket.transform.position, _projectileSpawnSocket.transform.rotation);
+                lastSpit =  Time.time;
+                fireAmount++;
+                yield return new WaitForSeconds(0.1f);
+            }
+
+            while (fireAmount < 20)
+            {
+                fireCollider.SetActive(true);
+            }
+            if (fireAmount == 20)
+            {
+                fireCollider.SetActive(false);
+            }
+            
             agent.SetDestination(transform.position);
-            _lastShot = Time.time;
-            print("Range");
+            fireAmount = 0;
             Invoke("ResetRange", _rangeAttackFireRate);
         }
     }

@@ -3,7 +3,17 @@ guid: 811f17a9031203e4ab394c19cc7651a3
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Warboy
+    second: {fileID: 2100000, guid: b6b93ff9e8bb0c6459ea7894a7235d17, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Warboy02
+    second: {fileID: 2100000, guid: ef66ffe02b836724c9f8042be60a88cf, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
