@@ -45,6 +45,7 @@ public class AttackSystem : MonoBehaviour
 
     void Start()
     {
+        
         _ammo = gameObject.GetComponent<PlayerStats>()._ammo;
         
         _animator.SetInteger(("AttackNumber"), attackNumber);
@@ -53,6 +54,7 @@ public class AttackSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        _ammo = gameObject.GetComponent<PlayerStats>()._ammo;
         if (arrowInHand)
         {
             Crossbow.SetActive(true);
@@ -88,11 +90,8 @@ public class AttackSystem : MonoBehaviour
             {
                 _arrowPrefab.GetComponent<Projectile>().parent = this.gameObject;
                 arrow =  Instantiate(_arrowPrefab, _muzzle.transform.position, _muzzle.transform.rotation);
-                
-
-
                 _lastShot = Time.time;
-                _ammo--;
+                gameObject.GetComponent<PlayerStats>()._ammo--;
             }
         
         if(!arrowInHand)
@@ -109,6 +108,7 @@ public class AttackSystem : MonoBehaviour
         if (canAttack)
         {
             arrowInHand = false;
+            _animator.SetBool("ArrowInHand", false);
             Vector3 fwd = transform.TransformDirection(Vector3.forward);
             Vector3 castOrigin = new Vector3(transform.position.x, transform.position.y +1, transform.position.z);
             if (Physics.Raycast(castOrigin, fwd, out RaycastHit hit, 1.2f))
