@@ -44,7 +44,7 @@ Light:
   serializedVersion: 11
   m_Type: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 397.03152
+  m_Intensity: 273.05838
   m_Range: 24.7
   m_SpotAngle: 179
   m_InnerSpotAngle: 1
@@ -87,7 +87,7 @@ Light:
   m_LightShadowCasterMode: 2
   m_AreaSize: {x: 47.7, y: 0.5}
   m_BounceIntensity: 1
-  m_ColorTemperature: 4000
+  m_ColorTemperature: 9053
   m_UseColorTemperature: 1
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 20.08}
   m_UseBoundingSphereOverride: 0
@@ -488,7 +488,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 217
+  m_VersionIndex: 223
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -840,7 +840,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 217
+  m_VersionIndex: 223
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -1336,7 +1336,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 217
+  m_VersionIndex: 223
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -1646,7 +1646,7 @@ Transform:
   m_GameObject: {fileID: 4595327381439664222}
   serializedVersion: 2
   m_LocalRotation: {x: 0.012164278, y: -0.72664505, z: 0.06468162, w: 0.68385327}
-  m_LocalPosition: {x: 22.12, y: -5.96, z: 16.08}
+  m_LocalPosition: {x: 22.09, y: -5.93, z: 16.55}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1663,7 +1663,7 @@ Light:
   serializedVersion: 11
   m_Type: 0
   m_Color: {r: 0.96933967, g: 0.8443396, b: 1, a: 1}
-  m_Intensity: 529.42786
+  m_Intensity: 1447.4722
   m_Range: 11.2
   m_SpotAngle: 53.53035
   m_InnerSpotAngle: 1
@@ -1886,7 +1886,7 @@ Transform:
   m_GameObject: {fileID: 4945154174056786243}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7158525, y: 0.032767672, z: -0.69746757, w: -0.004523034}
-  m_LocalPosition: {x: -6.99, y: -4.29, z: 16.19}
+  m_LocalPosition: {x: -5.89, y: -4.35, z: 16.16}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1903,9 +1903,9 @@ Light:
   serializedVersion: 11
   m_Type: 0
   m_Color: {r: 0.9752358, g: 0.9009434, b: 1, a: 1}
-  m_Intensity: 572.8615
-  m_Range: 13.8
-  m_SpotAngle: 57.13846
+  m_Intensity: 579.6589
+  m_Range: 11
+  m_SpotAngle: 82.90163
   m_InnerSpotAngle: 1
   m_CookieSize: 10
   m_Shadows:
@@ -1946,7 +1946,7 @@ Light:
   m_LightShadowCasterMode: 2
   m_AreaSize: {x: 47.7, y: 0.5}
   m_BounceIntensity: 1
-  m_ColorTemperature: 5823
+  m_ColorTemperature: 4000
   m_UseColorTemperature: 1
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 20.08}
   m_UseBoundingSphereOverride: 0
@@ -1976,7 +1976,7 @@ MonoBehaviour:
   m_LightUnit: 0
   m_LuxAtDistance: 1
   m_Intensity: 0
-  m_InnerSpotPercent: 1.7501347
+  m_InnerSpotPercent: 32.28303
   m_SpotIESCutoffPercent: 100
   m_LightDimmer: 1
   m_VolumetricDimmer: 1
