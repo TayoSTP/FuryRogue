@@ -122,7 +122,7 @@ MonoBehaviour:
   noClipSpeed: 10
   _accelInAir: 0.01
   _decelInAir: 1
-  _jumpForce: 7
+  _jumpForce: 9
   _gravityScale: 10
   _dashForce: 20
   _followCamera: 1
@@ -192,12 +192,12 @@ MonoBehaviour:
   _currentHealth: 0
   _maxHealth: 100
   respawnPoint: {fileID: 0}
-  _ammo: 1000
+  _ammo: 5
   scraps: 100
   maxWater: 0
   water: 100
-  maxStamina: 0
-  currentStamina: 0
+  maxStamina: 100
+  currentStamina: 100
   EnnemyKilled: 0
   _playerPrefab: {fileID: 5316962869786817145}
 --- !u!114 &4280605260369360418
@@ -365,6 +365,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7180690851780207825, guid: 539d2d748e19962429dbe75825e66a95, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: e128f1e95f4b58644881e4dc2a6fe28c, type: 2}
+    - target: {fileID: -7180690851780207825, guid: 539d2d748e19962429dbe75825e66a95, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 2c2445b842919674fa1c518a2d9845ce, type: 2}
     - target: {fileID: 919132149155446097, guid: 539d2d748e19962429dbe75825e66a95, type: 3}
       propertyPath: m_Name
       value: Neutral Idle

@@ -79,6 +79,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -5394963383211946849, guid: 57c001ecce7fb184e95d2954cb4e4b0b, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ef66ffe02b836724c9f8042be60a88cf, type: 2}
+    - target: {fileID: -5394963383211946849, guid: 57c001ecce7fb184e95d2954cb4e4b0b, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: b6b93ff9e8bb0c6459ea7894a7235d17, type: 2}
     - target: {fileID: 919132149155446097, guid: 57c001ecce7fb184e95d2954cb4e4b0b, type: 3}
       propertyPath: m_Name
       value: Ai_WarboyDistance
