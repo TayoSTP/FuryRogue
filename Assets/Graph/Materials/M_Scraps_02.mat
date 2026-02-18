@@ -23,7 +23,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_Arbalete
+  m_Name: M_Scraps_02
   m_Shader: {fileID: -6465566751694194690, guid: 52332be4f17dc744eb465f47b8bbeb2e, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -47,11 +47,11 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _AO:
-        m_Texture: {fileID: 2800000, guid: bd00de8c2edaa394cbce9f18bf188742, type: 3}
+        m_Texture: {fileID: 2800000, guid: 22ce8090b51c1404fa65b385996fcaa7, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Albedo:
-        m_Texture: {fileID: 2800000, guid: f7cbe90dd4b828c4b925209c7c5c5f52, type: 3}
+        m_Texture: {fileID: 2800000, guid: 20c4be9478fb9954982d3d3a2f2b3fec, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _LerpMask:
@@ -75,15 +75,15 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Metalic_Roughness:
-        m_Texture: {fileID: 2800000, guid: bd00de8c2edaa394cbce9f18bf188742, type: 3}
+        m_Texture: {fileID: 2800000, guid: 22ce8090b51c1404fa65b385996fcaa7, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Normal:
-        m_Texture: {fileID: 2800000, guid: bc290fe3c5314a44b981715afcc26fbf, type: 3}
+        m_Texture: {fileID: 2800000, guid: 5e7eda73cd14e004190bdc7d4d44a6da, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Roughness:
-        m_Texture: {fileID: 2800000, guid: bd00de8c2edaa394cbce9f18bf188742, type: 3}
+        m_Texture: {fileID: 2800000, guid: 22ce8090b51c1404fa65b385996fcaa7, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_988848a0e3634a20a63c9b3483646944_Texture_1_Texture2D:
@@ -109,7 +109,7 @@ Material:
     - _AlphaDstBlend: 0
     - _AlphaSrcBlend: 1
     - _BlendMode: 0
-    - _ColorModification: 1
+    - _ColorModification: 3.2
     - _ConservativeDepthOffsetEnable: 0
     - _CullMode: 2
     - _CullModeForward: 2
@@ -119,7 +119,7 @@ Material:
     - _DoubleSidedNormalMode: 2
     - _DstBlend: 0
     - _DstBlend2: 0
-    - _EmissivePower: 0
+    - _EmissivePower: 0.5
     - _EnableBlendModePreserveSpecularLighting: 1
     - _EnableFogOnTransparent: 1
     - _ExcludeFromTUAndAA: 0
@@ -129,7 +129,7 @@ Material:
     - _Lerp_Tiling: 1
     - _MaterialID: 1
     - _MaterialTypeMask: 2
-    - _NormalModification: 0.1
+    - _NormalModification: 1
     - _OpaqueCullMode: 2
     - _PerPixelSorting: 0
     - _RayTracing: 0
@@ -138,6 +138,7 @@ Material:
     - _RefractionModel: 0
     - _RenderQueueType: 1
     - _RequireSplitLighting: 0
+    - _RoughnessTwiking: 0
     - _Roughnessmodification: 0
     - _SaturationAdd: 1
     - _SrcBlend: 1
@@ -170,7 +171,7 @@ Material:
     m_Colors:
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
-    - _EmissiveColor: {r: 0, g: 0, b: 0, a: 0}
+    - _EmissiveColor: {r: 0.5849056, g: 0.1106578, b: 0, a: 0}
     - _Lerp_ColorModification: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

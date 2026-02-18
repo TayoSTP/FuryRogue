@@ -23,7 +23,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_Arbalete
+  m_Name: M_Arm
   m_Shader: {fileID: -6465566751694194690, guid: 52332be4f17dc744eb465f47b8bbeb2e, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -47,11 +47,11 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _AO:
-        m_Texture: {fileID: 2800000, guid: bd00de8c2edaa394cbce9f18bf188742, type: 3}
+        m_Texture: {fileID: 2800000, guid: 3206d791698b2254a98232e581ac5a8a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Albedo:
-        m_Texture: {fileID: 2800000, guid: f7cbe90dd4b828c4b925209c7c5c5f52, type: 3}
+        m_Texture: {fileID: 2800000, guid: 58d58a4c0d863ff4b9f540461f24a358, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _LerpMask:
@@ -75,11 +75,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Metalic_Roughness:
-        m_Texture: {fileID: 2800000, guid: bd00de8c2edaa394cbce9f18bf188742, type: 3}
+        m_Texture: {fileID: 2800000, guid: 3206d791698b2254a98232e581ac5a8a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Normal:
-        m_Texture: {fileID: 2800000, guid: bc290fe3c5314a44b981715afcc26fbf, type: 3}
+        m_Texture: {fileID: 2800000, guid: 4b770e11085cb22409cee5c4dcd24e57, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Roughness:
