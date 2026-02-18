@@ -9,7 +9,11 @@ public class PlayerStats : MonoBehaviour
     public GameObject respawnPoint;
     public int _ammo = 3;
     public int scraps;
-    public int water;
+    public float maxWater;
+    public float water;
+    public float maxStamina;
+    public float currentStamina;
+    public int EnnemyKilled;
 
     private bool canDrink = true;
     [SerializeField] private GameObject _playerPrefab;
@@ -20,12 +24,22 @@ public class PlayerStats : MonoBehaviour
     void Start()
     {
         _currentHealth = _maxHealth;
+        currentStamina = maxStamina;
+        water = maxWater;
+    }
+
+    private void Update()
+    {
+        _currentHealth= Mathf.Clamp(_currentHealth, 0, _maxHealth);
+        water = Mathf.Clamp(water, 0, maxWater);
+        _ammo = Mathf.Clamp(_ammo, 0, _ammo);
+        
     }
 
     // Update is called once per frame
     private void FixedUpdate()
     {
-        
+        print(_currentHealth);
     }
 
     public void looseHealth(float damage)
@@ -39,17 +53,18 @@ public class PlayerStats : MonoBehaviour
 
     void death()
     {
-    	_currentHealth = _maxHealth;
+    	
         gameObject.transform.position = respawnPoint.transform.position;
+        _currentHealth = _maxHealth;
     }
 
     void OnDrink()
     {
         if (canDrink)
         {
+            canDrink = false;
             DecreaseWater();
             gainHealth((_currentHealth*50)/100);
-            canDrink = false;
             Invoke("ResetDrink", 2f);
         }
         
@@ -69,6 +84,7 @@ public class PlayerStats : MonoBehaviour
     {
         if (water > 0)
         {
+            print("drinking");
             water -= 50;
         }
     }

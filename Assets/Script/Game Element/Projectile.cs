@@ -47,6 +47,10 @@ public class Projectile : MonoBehaviour
                 collision.gameObject.GetComponent<PlayerStats>().looseHealth(_damage);
             
             }
+            else if (collision.gameObject.CompareTag("Ennemy"))
+            {
+                collision.gameObject.GetComponent<AI_Stats>().looseHealth(_damage);
+            }
 
             if (Explosif)
             {

@@ -6,14 +6,12 @@ public class PlayerUI : MonoBehaviour
 {
     [Header("Scrap elements")]
     public TextMeshProUGUI scrapText;
-    public Image scrapImage;
-    public Texture2D newScrapImage;
+    public TextMeshProUGUI arrowsText;
     
-    [Header("Water elements")]
-    public TextMeshProUGUI waterText;
-    public Image waterImage;
+    [Header("Images elements")]
     public Image lifebarImage;
-    public Texture2D newWaterImage;
+    public Image staminaImage;
+    public Image waterBarImage;
     
     
     PlayerStats playerStats;
@@ -29,8 +27,10 @@ public class PlayerUI : MonoBehaviour
     void Update()
     {
         scrapText.text = playerStats.scraps.ToString();
+        arrowsText.text = playerStats._ammo.ToString();
         
-        waterText.text = playerStats.water.ToString();
         lifebarImage.fillAmount = playerStats._currentHealth / playerStats._maxHealth;
+        staminaImage.fillAmount = playerStats.currentStamina / playerStats.maxStamina;
+        waterBarImage.fillAmount = playerStats.water / playerStats.maxWater;
     }
 }

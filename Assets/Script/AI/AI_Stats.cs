@@ -6,12 +6,17 @@ public class AI_Stats : MonoBehaviour
 
     public float _currentHealth;
     Animator _animator;
+    PlayerStats _playerStats;
+    bool isDead = false;
+    
+    [SerializeField] GameObject scrap;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         _currentHealth = _maxHealth;
         _animator = GetComponent<Animator>();
+        _playerStats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
     }
 
     // Update is called once per frame
@@ -19,7 +24,8 @@ public class AI_Stats : MonoBehaviour
     {
         if (_currentHealth <= 0)
         {
-            Destroy(gameObject);
+            isDead = true;
+            death();
         }
     }
 
@@ -28,4 +34,21 @@ public class AI_Stats : MonoBehaviour
         _animator.SetTrigger("HitReact");
         _currentHealth -= damage;
     }
+
+    void death()
+    {
+        if (isDead)
+        {
+            isDead = false;
+            _playerStats.EnnemyKilled++;
+            Instantiate(scrap, transform.position, Quaternion.identity);
+            Destroy(gameObject);
+                  //_animator.SetTrigger("Death"); 
+            
+            
+        }
+        
+    }
+
+    
 }
