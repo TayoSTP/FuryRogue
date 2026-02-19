@@ -47,19 +47,39 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _AO:
-        m_Texture: {fileID: 2800000, guid: 2bb6d1af86017ec4ebb03fec75f042fb, type: 3}
+        m_Texture: {fileID: 2800000, guid: 24bfe06a1c76e2f4ba5f0956424f0f3d, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Albedo:
-        m_Texture: {fileID: 2800000, guid: da669266aaf513d47855c8dac2f6bcc2, type: 3}
+        m_Texture: {fileID: 2800000, guid: a50b37875c77a184690ebae25261650e, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _LerpMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Lerp_AO:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Lerp_Base_Color:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Lerp_Metalic_Roughness:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Lerp_Normal_Map:
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Metalic_Roughness:
-        m_Texture: {fileID: 2800000, guid: 2bb6d1af86017ec4ebb03fec75f042fb, type: 3}
+        m_Texture: {fileID: 2800000, guid: 24bfe06a1c76e2f4ba5f0956424f0f3d, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Normal:
-        m_Texture: {fileID: 2800000, guid: fde9fea5c4f46514e9bf6962c82aee6c, type: 3}
+        m_Texture: {fileID: 2800000, guid: 04befbb0e7fcad14585dc32b7e1ab02b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Roughness:
@@ -103,6 +123,10 @@ Material:
     - _EnableBlendModePreserveSpecularLighting: 1
     - _EnableFogOnTransparent: 1
     - _ExcludeFromTUAndAA: 0
+    - _LerpEnable: 0
+    - _LerpIntensity: 1
+    - _Lerp_NormalModifictaion: 0.1
+    - _Lerp_Tiling: 1
     - _MaterialID: 1
     - _MaterialTypeMask: 2
     - _NormalModification: 0.1
@@ -149,5 +173,6 @@ Material:
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
     - _EmissiveColor: {r: 0.254717, g: 0.07440101, b: 0, a: 0}
+    - _Lerp_ColorModification: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
