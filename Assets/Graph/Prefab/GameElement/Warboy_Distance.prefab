@@ -156,7 +156,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 120
   m_CollisionDetection: 0
 --- !u!95 &-2302061467022530215
 Animator:
@@ -254,7 +254,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 4245904778317723174, guid: 77486ef05b0a9bb4eae1024dc1dfbc25, type: 3}
   _ammo: 5
-  _fireRate: 0.25
+  _fireRate: 3.5
   _projectile: {fileID: 2995246691608531421, guid: 1a1e6ceac49da0b47b2c4cc486b749ed, type: 3}
   _projectileSpawn: {fileID: 310575685789840427}
   _dashSpeed: 8
