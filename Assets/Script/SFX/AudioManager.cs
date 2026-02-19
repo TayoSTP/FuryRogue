@@ -9,7 +9,6 @@ public enum AudioType
     Music,
     Die,
     Dash,
-    Arrow,
     Explostion,
     Punch,
     Punch2,
@@ -17,6 +16,14 @@ public enum AudioType
     HitFeadback,
     HitFeadback2,
     Boss,
+    Cri,
+    Heal,
+    Iconic,
+    Combats,
+    BackGround,
+    Wind,
+    LanceFlamme,
+    LanceFlamme2,
     taunt,
     Coin,
     Coin2,
@@ -26,7 +33,11 @@ public enum AudioType
     Victory,
     GameOver, 
     Explosion,
-    SwitchWeapon
+    SwitchWeapon,
+    Button,
+    Intro,
+    Outro,
+    
     
     
 }
