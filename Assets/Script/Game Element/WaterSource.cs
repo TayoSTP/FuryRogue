@@ -25,9 +25,8 @@ public class WaterSource : MonoBehaviour
         print(collider.gameObject.name);
         if (collider.gameObject.CompareTag("Player"))
         {
-            print("Player");
-            canInteract = true;
             player = collider.gameObject;
+            player.GetComponent<PlayerStats>()._waterSource = this;
         }
         
     }
@@ -36,8 +35,7 @@ public class WaterSource : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            canInteract = false;
-            player = null;
+            player.GetComponent<PlayerStats>()._waterSource = null;
         }
     }
 

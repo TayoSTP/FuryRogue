@@ -164,19 +164,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: bea24514ea711ff4499ab60b30c01ec7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 474.7
+      value: 483.43723
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bea24514ea711ff4499ab60b30c01ec7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.87
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bea24514ea711ff4499ab60b30c01ec7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.34
+      value: -1.073
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bea24514ea711ff4499ab60b30c01ec7, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bea24514ea711ff4499ab60b30c01ec7, type: 3}
       propertyPath: m_LocalRotation.x
@@ -184,7 +184,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bea24514ea711ff4499ab60b30c01ec7, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bea24514ea711ff4499ab60b30c01ec7, type: 3}
       propertyPath: m_LocalRotation.z
@@ -196,7 +196,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bea24514ea711ff4499ab60b30c01ec7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bea24514ea711ff4499ab60b30c01ec7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -287,7 +287,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
-  m_Constraints: 0
+  m_Constraints: 120
   m_CollisionDetection: 0
 --- !u!195 &2473367350578626900
 NavMeshAgent:
@@ -346,8 +346,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73c5955819f2d2543a6b45024ff463ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spawnPoints: []
-  _ennemies: []
+  _spawnPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  _ennemy: {fileID: 0}
   _rangeAttackFireRate: 3
   _dashRate: 2
   _projectileSpawnSocket: {fileID: 2467776240598372371}
@@ -363,6 +367,9 @@ MonoBehaviour:
   agent: {fileID: 2473367350578626900}
   fireCollider: {fileID: 2301692679220795886}
   bossHead: {fileID: 2231038812411729250}
+  lifeUI: {fileID: 0}
+  VictoryUI: {fileID: 0}
+  healthBar: {fileID: 0}
 --- !u!114 &4242588437660234019
 MonoBehaviour:
   m_ObjectHideFlags: 0

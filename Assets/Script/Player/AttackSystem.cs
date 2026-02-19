@@ -17,7 +17,7 @@ public class AttackSystem : MonoBehaviour
     private const float TIME_CURVE_ADDITION = 0.5f;
     private bool canAttack = true;
     private int attackNumber = 1;
-    private float attackRate = 0.5f;
+    public float attackRate = 0.5f;
     private float lastAttack;
     bool arrowInHand = false;
     

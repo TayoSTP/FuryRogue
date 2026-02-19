@@ -33,7 +33,6 @@ public class Teleporteur : MonoBehaviour
     // Update is called once per frame
     void Update() 
     {
-        print(cam);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -41,31 +40,46 @@ public class Teleporteur : MonoBehaviour
         if (other.tag == "Player" && !interact)
         {
             player = other.gameObject;
-            FadeIn();
-            other.transform.position = destination.transform.position;
+            Teleport();
+            
             
         }
-        else if(other.tag == "Player" && interact)
+        else if(other.CompareTag("Player") && interact)
         {
-            canTeleport = true;
+            //canTeleport = true;
           //  Instantiate(UI, transform.position + new Vector3(0,10,0), Quaternion.identity);
             player = other.gameObject;
+            player.GetComponent<TestPlayerMovement>().teleporteur = this;
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        canTeleport = false;
-        previousCamera.SetActive(false);
+        if (other.CompareTag("Player"))
+        {
+           canTeleport = false;
+           previousCamera.SetActive(false); 
+        }
+        
         
     }
 
-    void OnInteract(InputValue value)
+    public void Tp()
     {
-        if (canTeleport)
+        Teleport();
+    }
+    
+     void Teleport()
+    {
+        print("Interact");
+        player.SetActive(false);
+        while (player.transform.position != destination.transform.position)
         {
-            player.transform.position = destination.transform.position;
+            player.gameObject.transform.position = destination.transform.position;
         }
+        player.SetActive(true);
+        FadeIn();
+        
     }
 
     void FadeIn()

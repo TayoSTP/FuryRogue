@@ -19,10 +19,11 @@ public class PlayerStats : MonoBehaviour
 
     private bool canDrink = true;
     [SerializeField] private GameObject _playerPrefab;
-    
-    
-    
-    
+    [SerializeField] private GameObject defeatUI;
+
+    public WaterSource _waterSource;
+    public Upgrade _upgradeScript;
+    public GameObject _upgradeUI;
     void Start()
     {
         _currentHealth = _maxHealth;
@@ -55,10 +56,16 @@ public class PlayerStats : MonoBehaviour
 
     IEnumerator death()
     {
-    	
+        defeatUI.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        gameObject.SetActive(false);
         gameObject.transform.position = respawnPoint.transform.position;
-        yield return new WaitForSeconds(0.5f);
         _currentHealth = _maxHealth;
+        defeatUI.SetActive(false);
+        gameObject.SetActive(true);
+        
+        
+        
     }
 
     void OnDrink()
@@ -92,9 +99,23 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
-    public void IncreaseWater(int amount)
+    void OnInteract()
     {
-        water += amount;
+        if (_waterSource != null)
+        {
+            RefillWater();
+        }
+
+        if (_upgradeScript != null)
+        {
+            _upgradeUI.SetActive(true);
+            _upgradeScript.OpenMenu();
+            _upgradeScript.UI.SetActive(false);
+        }
+    }
+    public void RefillWater()
+    {
+        water = maxWater;
     }
     public void IncreaseScraps(int amount)
     {

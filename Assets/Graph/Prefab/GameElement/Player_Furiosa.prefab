@@ -24,13 +24,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 773783454102305376}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.7542318, y: -0.15201765, z: -0.12667805, w: -0.62608135}
+  m_LocalRotation: {x: 0.4836197, y: 0.5482397, z: 0.40185642, w: -0.5514133}
   m_LocalPosition: {x: -0.3, y: 0.1062257, z: 0.07192713}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5728873713660187606}
-  m_LocalEulerAnglesHint: {x: -100.6, y: 360.23, z: 22.6}
+  m_LocalEulerAnglesHint: {x: -76.9, y: 252.3, z: 22.6}
 --- !u!1 &5316962869786817145
 GameObject:
   m_ObjectHideFlags: 0
@@ -126,6 +126,7 @@ MonoBehaviour:
   _gravityScale: 10
   _dashForce: 20
   _followCamera: 1
+  teleporteur: {fileID: 0}
   _animator: {fileID: 6325543412759751707}
 --- !u!54 &2976550916651573245
 Rigidbody:
@@ -190,7 +191,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _currentHealth: 0
-  _maxHealth: 100
+  _maxHealth: 300
   respawnPoint: {fileID: 0}
   _ammo: 5
   scraps: 100
@@ -200,6 +201,10 @@ MonoBehaviour:
   currentStamina: 100
   EnnemyKilled: 0
   _playerPrefab: {fileID: 5316962869786817145}
+  defeatUI: {fileID: 0}
+  _waterSource: {fileID: 0}
+  _upgradeScript: {fileID: 0}
+  _upgradeUI: {fileID: 0}
 --- !u!114 &4280605260369360418
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -212,6 +217,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74c51d5c4f14bb144808b96b76961701, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackRate: 0.5
   _arrowPrefab: {fileID: 2995246691608531421, guid: 1a1e6ceac49da0b47b2c4cc486b749ed, type: 3}
   _muzzle: {fileID: 773783454102305376}
   _fireRate: 1
@@ -235,12 +241,12 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 3fe6619f566d3444ca68e6c191d93eda, type: 2}
-  m_CullingMode: 0
+  m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
-  m_AnimatePhysics: 1
+  m_AnimatePhysics: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1

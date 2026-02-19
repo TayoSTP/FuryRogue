@@ -8,13 +8,23 @@ public class PauseMenu : MonoBehaviour
     TestPlayerMovement playerMovement;
     private AttackSystem _attackSystem;
 
-    
+    public Upgrade upgrade;
     
     [Header ("Upgrade ")]
     public string upgrade1Name;
     public int upgrade1Price;
     public TextMeshProUGUI upgrade1TextObject;
+    public Image upgrade1Image;
+    public Image upgrade2Image;
     public int upgrade1PriceInflation;
+    public TextMeshProUGUI actualHpText;
+    public TextMeshProUGUI nextHpText;
+    public TextMeshProUGUI actualAttackText;
+    public TextMeshProUGUI nextAttackText;
+    public TextMeshProUGUI actualAttackSpeedText;
+    public TextMeshProUGUI nextAttackSpeedText;
+    public Button upgrade1Button;
+    
     
     
     
@@ -39,17 +49,29 @@ public class PauseMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        actualHpText.text = playerStats._maxHealth.ToString();
+        actualAttackText.text = _attackSystem._attackDamage.ToString();
+        actualAttackSpeedText.text = _attackSystem.attackRate.ToString();
+        
+        nextHpText.text = ((playerStats._maxHealth * 20)/100).ToString();
+        nextAttackText.text = ((_attackSystem._attackDamage* 20)/100).ToString();
+        nextAttackSpeedText.text = ((_attackSystem.attackRate * 20)/100).ToString();
         //Upgrade 1 Text Setting
         upgrade1TextObject.text = upgrade1Name + " : " +(upgrade1Price.ToString());
         if (playerStats.scraps >= upgrade1Price)
         {
-            upgrade1TextObject.color = Color.green;
-            
+            upgrade1Image.enabled = true;
+            upgrade2Image.enabled = false;
+            upgrade1TextObject.color = Color.white;
+            upgrade1Button.interactable = true;
         }
         else
         {
             
-            upgrade1TextObject.color = Color.red;
+            upgrade1Image.enabled = false;
+            upgrade2Image.enabled = true;
+            upgrade1TextObject.color = Color.grey;
+            upgrade1Button.interactable = false;
         }
 
         if (playerStats.scraps >= plugInPrice)
@@ -88,8 +110,12 @@ public class PauseMenu : MonoBehaviour
             playerStats._maxHealth += ((playerStats._maxHealth* 20)/100);
         }
     }
-    
-    
+
+    public void CloseUpgradeMenu()
+    {
+        upgrade.cam2.SetActive(false);
+        upgrade.UI.SetActive(true);
+    }
 
     public void OpenMenu(GameObject menu)
     {
@@ -97,7 +123,7 @@ public class PauseMenu : MonoBehaviour
         menu.SetActive(true);
     }
 
-    public void BuyPlugin(GameObject plugin,CanvasGroup canvas)
+    public void BuyPlugin()
     {
         if (playerStats.scraps >= plugInPrice)
         {

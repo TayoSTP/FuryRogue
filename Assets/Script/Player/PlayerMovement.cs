@@ -49,6 +49,7 @@ public class TestPlayerMovement : MonoBehaviour
     
     private bool restoreStam;
     private float lastRestore;
+    public Teleporteur teleporteur;
     
     [SerializeField] Animator _animator;
 
@@ -125,6 +126,15 @@ public class TestPlayerMovement : MonoBehaviour
     void OnDash(InputValue value)
     {
         if(_canDash) StartCoroutine("dash");
+    }
+
+    void OnInteract()
+    {
+        if (teleporteur != null)
+        {
+            teleporteur.Tp();
+            teleporteur = null;
+        }
     }
     private void Update()
     {

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class AI_Boss : MonoBehaviour
 {
@@ -14,7 +15,7 @@ public class AI_Boss : MonoBehaviour
     private bool canRange = true;
     
     public GameObject[] _spawnPoints;
-    public GameObject[] _ennemies;
+    public GameObject _ennemy;
     
     [Header("Settings")]
     [SerializeField] private float _rangeAttackFireRate;
@@ -46,6 +47,11 @@ public class AI_Boss : MonoBehaviour
     float lastSpit;
     int fireAmount;
     private AI_Stats _AIStats;
+
+    public GameObject lifeUI;
+    public GameObject VictoryUI;
+    public Image healthBar;
+    
     
     void Start()
     {
@@ -58,6 +64,7 @@ public class AI_Boss : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        healthBar.fillAmount = _AIStats._currentHealth / _AIStats._maxHealth;
         _PlayerInMeleRange = Physics.CheckSphere(transform.position, _meleAttackRange, _whatIsPlayer);
         _PlayerInSight = Physics.CheckSphere(transform.position, _SightRange, _whatIsPlayer);
         _PlayerInDistanceRange = Physics.CheckSphere(transform.position, _distanceAttackRange,_whatIsPlayer);
@@ -68,12 +75,20 @@ public class AI_Boss : MonoBehaviour
         if (_PlayerInSight && !_PlayerInMeleRange && _PlayerInDistanceRange) StartCoroutine(RangeAttack());
         if (_PlayerInSight && _PlayerInMeleRange && _PlayerInDistanceRange) AttackPlayer();
 
+        if (_AIStats._currentHealth <= 0)
+        {
+            VictoryUI.SetActive(true);
+        }
         if (_PlayerInSight)
         {
             //fireCollider.transform.LookAt(_player.transform.position);
             //_projectileSpawnSocket.transform.LookAt(_player.transform.position);
-            
+            lifeUI.SetActive(true);
             bossHead.transform.LookAt(_player.transform);
+        }
+        else
+        {
+            lifeUI.SetActive(false);
         }
         float health = _AIStats._currentHealth;
         if(health <= 50)
@@ -179,9 +194,8 @@ public class AI_Boss : MonoBehaviour
                int rand = UnityEngine.Random.Range(2, 10);
                for (int i = 0; i < rand; i++)
                {
-                   int en  = UnityEngine.Random.Range(1, 2);
-                   GameObject ennemy = _ennemies[en];
-                   Instantiate(ennemy, _spawnPoint.transform.position, Quaternion.identity);
+                   
+                   Instantiate(_ennemy, _spawnPoint.transform.position, Quaternion.identity);
                    yield return new WaitForSeconds(0.5f);
                }
                
