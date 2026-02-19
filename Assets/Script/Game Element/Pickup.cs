@@ -25,7 +25,7 @@ public class Pickup : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            playerStats.scraps += 1;
+            playerStats.scraps += 12;
             Destroy(gameObject);
         }
     }
