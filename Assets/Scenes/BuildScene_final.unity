@@ -22263,6 +22263,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 939396937}
     m_Modifications:
+    - target: {fileID: 72795849745327473, guid: b811bd207b80fe84badb534ec009a6a8, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 72795849745327473, guid: b811bd207b80fe84badb534ec009a6a8, type: 3}
+      propertyPath: m_Intensity
+      value: 293.29358
+      objectReference: {fileID: 0}
+    - target: {fileID: 72795849745327473, guid: b811bd207b80fe84badb534ec009a6a8, type: 3}
+      propertyPath: m_SpotAngle
+      value: 134.40945
+      objectReference: {fileID: 0}
+    - target: {fileID: 72795849745327473, guid: b811bd207b80fe84badb534ec009a6a8, type: 3}
+      propertyPath: m_ColorTemperature
+      value: 4000
+      objectReference: {fileID: 0}
     - target: {fileID: 2145436873700340392, guid: b811bd207b80fe84badb534ec009a6a8, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.3099976
@@ -22306,6 +22322,30 @@ PrefabInstance:
     - target: {fileID: 2303762027240459745, guid: b811bd207b80fe84badb534ec009a6a8, type: 3}
       propertyPath: m_Name
       value: P_FinalRoom_HUB
+      objectReference: {fileID: 0}
+    - target: {fileID: 3723692524211457559, guid: b811bd207b80fe84badb534ec009a6a8, type: 3}
+      propertyPath: m_InnerSpotPercent
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5130358163947635306, guid: b811bd207b80fe84badb534ec009a6a8, type: 3}
+      propertyPath: m_Range
+      value: 19.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5130358163947635306, guid: b811bd207b80fe84badb534ec009a6a8, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5130358163947635306, guid: b811bd207b80fe84badb534ec009a6a8, type: 3}
+      propertyPath: m_Intensity
+      value: 2201.2886
+      objectReference: {fileID: 0}
+    - target: {fileID: 7820286916284266405, guid: b811bd207b80fe84badb534ec009a6a8, type: 3}
+      propertyPath: m_Intensity
+      value: 205.75401
+      objectReference: {fileID: 0}
+    - target: {fileID: 8345142507501147023, guid: b811bd207b80fe84badb534ec009a6a8, type: 3}
+      propertyPath: m_Intensity
+      value: 125.80638
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
