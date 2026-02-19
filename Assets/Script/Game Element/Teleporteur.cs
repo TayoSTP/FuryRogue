@@ -65,6 +65,7 @@ public class Teleporteur : MonoBehaviour
         if (canTeleport)
         {
             player.transform.position = destination.transform.position;
+            //FadeIn();
         }
     }
 
