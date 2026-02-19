@@ -91,7 +91,7 @@ public class AI_Boss : MonoBehaviour
             lifeUI.SetActive(false);
         }
         float health = _AIStats._currentHealth;
-        if(health <= 50)
+        if(health <= 65)
         {
             print(_AIStats._currentHealth);
             StartCoroutine(BigAttack());

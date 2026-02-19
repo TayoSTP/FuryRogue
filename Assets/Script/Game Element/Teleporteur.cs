@@ -37,7 +37,7 @@ public class Teleporteur : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player" && !interact)
+        if (other.CompareTag("Player") && !interact)
         {
             player = other.gameObject;
             Teleport();

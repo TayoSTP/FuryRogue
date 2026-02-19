@@ -18,7 +18,7 @@ public class FireCollider : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.CompareTag("Player"))
         {
             other.gameObject.GetComponent<PlayerStats>().looseHealth(Time.deltaTime + 0.5f);
         }

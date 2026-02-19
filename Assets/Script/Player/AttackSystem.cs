@@ -122,7 +122,7 @@ public class AttackSystem : MonoBehaviour
                         Rigidbody rb = hit.collider.gameObject.GetComponent<Rigidbody>();
                         rb.AddForce(gameObject.transform.forward * 250);
                         hit.collider.gameObject.GetComponent<AI_Stats>().looseHealth(_attackDamage+10);
-                        hit.collider.gameObject.GetComponent<NavMeshAgent>().destination = hit.collider.gameObject.transform.position;
+                        //hit.collider.gameObject.GetComponent<NavMeshAgent>().destination = hit.collider.gameObject.transform.position;
                         _animator.SetInteger(("AttackNumber"), 3);
                         _hitsnumber = 0;
                         Instantiate(_exploPrefab, hit.point, Quaternion.identity);
@@ -152,7 +152,7 @@ public class AttackSystem : MonoBehaviour
                     }
                     
                     Rigidbody _rb = hit.collider.gameObject.GetComponent<Rigidbody>();
-                    _rb.AddForce(gameObject.transform.forward * 200);
+                    _rb.AddForce(gameObject.transform.forward * 100);
                     hit.collider.gameObject.GetComponent<AI_Stats>().looseHealth(_attackDamage);
                     _hitsnumber++;
                     
