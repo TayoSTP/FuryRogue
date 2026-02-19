@@ -14,7 +14,7 @@ public class AI_Boss : MonoBehaviour
     private bool canRange = true;
     
     public GameObject[] _spawnPoints;
-    public GameObject[] _ennemies;
+    public GameObject _ennemies;
     
     [Header("Settings")]
     [SerializeField] private float _rangeAttackFireRate;
@@ -179,9 +179,9 @@ public class AI_Boss : MonoBehaviour
                int rand = UnityEngine.Random.Range(2, 10);
                for (int i = 0; i < rand; i++)
                {
-                   int en  = UnityEngine.Random.Range(1, 2);
-                   GameObject ennemy = _ennemies[en];
-                   Instantiate(ennemy, _spawnPoint.transform.position, Quaternion.identity);
+                   
+                   
+                   Instantiate(_ennemies, _spawnPoint.transform.position, Quaternion.identity);
                    yield return new WaitForSeconds(0.5f);
                }
                
