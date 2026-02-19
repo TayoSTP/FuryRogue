@@ -101,6 +101,7 @@ public class AttackSystem : MonoBehaviour
         }
         
     }
+    
 
     void OnLightAttack(InputValue value)
     {
