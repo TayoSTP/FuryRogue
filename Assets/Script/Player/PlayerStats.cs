@@ -1,6 +1,8 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections.Generic;
 
 public class PlayerStats : MonoBehaviour
 {
@@ -47,14 +49,15 @@ public class PlayerStats : MonoBehaviour
         _currentHealth -= damage;
         if (_currentHealth <= 0)
         {
-            death();
+            StartCoroutine(death());
         }
     }
 
-    void death()
+    IEnumerator death()
     {
     	
         gameObject.transform.position = respawnPoint.transform.position;
+        yield return new WaitForSeconds(0.5f);
         _currentHealth = _maxHealth;
     }
 

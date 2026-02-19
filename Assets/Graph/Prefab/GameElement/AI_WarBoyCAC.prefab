@@ -48,6 +48,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -5394963383211946849, guid: 57c001ecce7fb184e95d2954cb4e4b0b, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -8725309066836000954, guid: 57c001ecce7fb184e95d2954cb4e4b0b, type: 3}
     - target: {fileID: 919132149155446097, guid: 57c001ecce7fb184e95d2954cb4e4b0b, type: 3}
       propertyPath: m_Name
       value: AI_WarBoyCAC
@@ -98,7 +102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _detectionRange: 10
   _dashSpeed: 10
-  _explosionPrefab: {fileID: 0}
+  _explosionPrefab: {fileID: 6979859464678593287, guid: 4707dc1f77b730842a4af527e6b5da0c, type: 3}
   _acceptanceRange: 2
   _attackRate: 0.5
   _hitDamage: 5
