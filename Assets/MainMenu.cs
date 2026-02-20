@@ -1,10 +1,11 @@
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
+using System.Collections.Generic;
 public class MainMenu : MonoBehaviour
 {
-    public GameObject scene;
-    public SceneAsset _sceneAsset;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -17,9 +18,24 @@ public class MainMenu : MonoBehaviour
         
     }
 
+    public void CloseMenu(GameObject menu)
+    {
+        menu.SetActive(false);
+    }
+
+    public void OpenMenu(GameObject menu)
+    {
+        menu.SetActive(true);
+    }
     public void OpenScene()
     {
         print("OpenScene");
-        SceneManager.LoadScene(_sceneAsset.name);
+        StartCoroutine(LoadingScene());
+    }
+
+    IEnumerator LoadingScene()
+    {
+        yield return new WaitForSeconds(2f);
+        SceneManager.LoadScene("BuildScene_final");
     }
 }

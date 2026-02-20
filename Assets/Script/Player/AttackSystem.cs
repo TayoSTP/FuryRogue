@@ -111,7 +111,7 @@ public class AttackSystem : MonoBehaviour
             arrowInHand = false;
             _animator.SetBool("ArrowInHand", false);
             Vector3 fwd = transform.TransformDirection(Vector3.forward);
-            Vector3 castOrigin = new Vector3(transform.position.x, transform.position.y +1, transform.position.z);
+            Vector3 castOrigin = new Vector3(transform.position.x , transform.position.y +1, transform.position.z);
             if (Physics.Raycast(castOrigin, fwd, out RaycastHit hit, 1.2f))
             {
                 
@@ -120,7 +120,7 @@ public class AttackSystem : MonoBehaviour
                     if ((100 * Random.Range(0, 100))/100 <= bigAttackChancePourcentage && plugIn1)
                     {
                         Rigidbody rb = hit.collider.gameObject.GetComponent<Rigidbody>();
-                        rb.AddForce(gameObject.transform.forward * 250);
+                        rb.AddForce(gameObject.transform.forward * 100);
                         hit.collider.gameObject.GetComponent<AI_Stats>().looseHealth(_attackDamage+10);
                         //hit.collider.gameObject.GetComponent<NavMeshAgent>().destination = hit.collider.gameObject.transform.position;
                         _animator.SetInteger(("AttackNumber"), 3);
@@ -152,7 +152,7 @@ public class AttackSystem : MonoBehaviour
                     }
                     
                     Rigidbody _rb = hit.collider.gameObject.GetComponent<Rigidbody>();
-                    _rb.AddForce(gameObject.transform.forward * 100);
+                    _rb.AddForce(gameObject.transform.forward * 50);
                     hit.collider.gameObject.GetComponent<AI_Stats>().looseHealth(_attackDamage);
                     _hitsnumber++;
                     
@@ -175,6 +175,6 @@ public class AttackSystem : MonoBehaviour
         Vector3 castOrigin = new Vector3(transform.position.x, transform.position.y +1, transform.position.z);
         Vector3 fwd = transform.TransformDirection(Vector3.forward);
         Gizmos.color = Color.magenta;
-        Gizmos.DrawRay(castOrigin,   fwd * 2);
+        Gizmos.DrawRay(castOrigin, fwd);
     }
 }

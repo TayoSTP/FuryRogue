@@ -9,7 +9,7 @@ public class Teleporteur : MonoBehaviour
 {
     public bool interact;
     public GameObject destination;
-    GameObject UI;
+    public GameObject UI;
     GameObject player;
 
     public bool canTeleport;
@@ -20,19 +20,29 @@ public class Teleporteur : MonoBehaviour
     private Coroutine alphaChange;
     public GameObject newCamera;
     public GameObject previousCamera;
+    UnityEngine.Camera camera;
     List<Camera> cam;
+    private bool textPos;
+    
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         //canvasGroup.alpha = 0;
         //FadeIn();
+        camera = previousCamera.GetComponent<UnityEngine.Camera>();
         cam = new List<Camera>().FindAll(x => x.gameObject.CompareTag("MainCamera"));
     }
 
     // Update is called once per frame
     void Update() 
     {
+        if (textPos)
+        {
+            Vector3 pos = new Vector3(transform.position.x, transform.position.y + 2, transform.position.z);
+            UI.transform.position =  RectTransformUtility.WorldToScreenPoint(camera, pos);
+        }
+            
     }
 
     private void OnTriggerEnter(Collider other)
@@ -50,6 +60,8 @@ public class Teleporteur : MonoBehaviour
           //  Instantiate(UI, transform.position + new Vector3(0,10,0), Quaternion.identity);
             player = other.gameObject;
             player.GetComponent<TestPlayerMovement>().teleporteur = this;
+            textPos = true;
+            UI.SetActive(true);
         }
     }
 
@@ -59,6 +71,8 @@ public class Teleporteur : MonoBehaviour
         {
            canTeleport = false;
            previousCamera.SetActive(false); 
+           textPos = false;
+           UI.SetActive(false);
         }
         
         
