@@ -45,12 +45,13 @@ public class AI_CloseCombat : MonoBehaviour
         float distance = Vector3.Distance(_target.transform.position, transform.position);
         if (distance < _detectionRange)
         {
-            gameObject.transform.rotation = Quaternion.LookRotation(_target.transform.position - transform.position);
+            transform.LookAt(_target.transform.position);
+            transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
         }
         if (distance < _detectionRange  && _canMove)
         {
             DashToPlayer();
-            
+             
             //gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, _target.transform.position, _dashSpeed * Time.deltaTime);
         }
         if (distance <= _acceptanceRange && !_rampage)

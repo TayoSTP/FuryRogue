@@ -13,6 +13,7 @@ public class Upgrade : MonoBehaviour
 
     public UnityEngine.Camera cam;
     public GameObject cam2;
+    private bool uiPos;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -23,8 +24,11 @@ public class Upgrade : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-       UI.transform.position =  RectTransformUtility.WorldToScreenPoint(cam, Arm.transform.position);
+        if (uiPos)
+        {
+            UI.transform.position =  RectTransformUtility.WorldToScreenPoint(cam, Arm.transform.position);
+        }   
+       
     }
 
     private void OnTriggerEnter(Collider other)
@@ -33,6 +37,7 @@ public class Upgrade : MonoBehaviour
         {
             other.GetComponent<PlayerStats>()._upgradeScript = this;
             UI.SetActive(true);
+            uiPos = true;
         }
     }
 
@@ -42,6 +47,7 @@ public class Upgrade : MonoBehaviour
         {
             other.GetComponent<PlayerStats>()._upgradeScript = null;
             UI.SetActive(false);
+            uiPos = false;
         }
     }
 
