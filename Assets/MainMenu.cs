@@ -9,7 +9,7 @@ public class MainMenu : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        AudioManager.Instance.Playsound(AudioType.Menu, AudioSourceType.Game); 
     }
 
     // Update is called once per frame
@@ -29,6 +29,7 @@ public class MainMenu : MonoBehaviour
     }
     public void OpenScene()
     {
+        AudioManager.Instance.Playsound(AudioType.Button, AudioSourceType.Player);
         print("OpenScene");
         StartCoroutine(LoadingScene());
     }

@@ -108,6 +108,7 @@ public class AI_Boss : MonoBehaviour
             canRange = false;
             gameObject.transform.LookAt(_player.transform);
             _animator.SetTrigger("FireSpit");
+            AudioManager.Instance.Playsound(AudioType.LanceFlamme, AudioSourceType.Game);
             yield return new WaitForSeconds(0.4f);
             
             while (fireAmount < 20)
@@ -143,6 +144,7 @@ public class AI_Boss : MonoBehaviour
         
          if (!_alreadyDashed)
         {
+            AudioManager.Instance.Playsound(AudioType.Boss, AudioSourceType.Game);
             _alreadyDashed = true;
             
             print("Chase");

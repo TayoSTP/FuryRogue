@@ -32,6 +32,7 @@ public class AI_Stats : MonoBehaviour
     public void looseHealth(float damage)
     {
         _animator.SetTrigger("HitReact");
+        AudioManager.Instance.Playsound(AudioType.HitFeadback, AudioSourceType.Game);
         _currentHealth -= damage;
     }
 

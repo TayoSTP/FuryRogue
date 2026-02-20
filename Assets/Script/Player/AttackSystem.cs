@@ -160,6 +160,7 @@ public class AttackSystem : MonoBehaviour
                 }
             }
             _animator.SetTrigger("Punch");
+            AudioManager.Instance.Playsound(AudioType.Punch2, AudioSourceType.Player);
             Invoke("ResetAttack", attackRate);
         }
         

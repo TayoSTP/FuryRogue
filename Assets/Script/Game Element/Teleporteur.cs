@@ -94,6 +94,7 @@ public class Teleporteur : MonoBehaviour
         player.SetActive(true);
         FadeIn();
         
+        
     }
 
     void FadeIn()

@@ -98,7 +98,8 @@ public class TestPlayerMovement : MonoBehaviour
     void OnJump(InputValue value)
     {
         if (_grounded && canJump)
-        {
+        {   
+            
             canJump = false;
             _animator.SetTrigger("Jump");
             float jumpForce = _jumpForce;

@@ -55,6 +55,7 @@ public class Projectile : MonoBehaviour
             if (Explosif)
             {
                 Instantiate(_ExplosionPrefab, collision.contacts[0].point, Quaternion.identity);
+                AudioManager.Instance.Playsound(AudioType.Explosion, AudioSourceType.Game);
             }
             Destroy(gameObject);
         }

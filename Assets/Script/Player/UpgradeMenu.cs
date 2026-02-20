@@ -119,6 +119,7 @@ public class PauseMenu : MonoBehaviour
 
     public void OpenMenu(GameObject menu)
     {
+        AudioManager.Instance.Playsound(AudioType.Button, AudioSourceType.Game);
         print("bitch");
         menu.SetActive(true);
     }
@@ -127,6 +128,7 @@ public class PauseMenu : MonoBehaviour
     {
         if (playerStats.scraps >= plugInPrice)
         {
+            AudioManager.Instance.Playsound(AudioType.Coin, AudioSourceType.Game);
             playerStats.scraps -= plugInPrice;
             _attackSystem.plugIn1 = true;
             //image = plugInImage;
@@ -138,6 +140,7 @@ public class PauseMenu : MonoBehaviour
     
     public void CloseMenu(GameObject menu)
     {
+        AudioManager.Instance.Playsound(AudioType.Button, AudioSourceType.Game);
         menu.SetActive(false);
     }
 }

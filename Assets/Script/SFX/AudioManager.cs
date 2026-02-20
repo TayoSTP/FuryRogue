@@ -69,7 +69,7 @@ public class AudioManager : MonoBehaviour
   
   public AudioData[] audioData;
 
-  void Avake()
+  void Awake()
   {
       Instance = this;
   }

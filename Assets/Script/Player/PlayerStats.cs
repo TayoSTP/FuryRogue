@@ -47,6 +47,7 @@ public class PlayerStats : MonoBehaviour
 
     public void looseHealth(float damage)
     {
+        AudioManager.Instance.Playsound(AudioType.HitFeadback2, AudioSourceType.Player);
         _currentHealth -= damage;
         if (_currentHealth <= 0)
         {
